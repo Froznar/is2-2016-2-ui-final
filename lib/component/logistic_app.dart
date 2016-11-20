@@ -3,49 +3,35 @@ library logistic_ui.logistic_app;
 import 'package:angular2/angular2.dart';
 import 'package:angular2/router.dart';
 
-import 'package:logistic_ui/component/user/user_panel.dart';
-import 'package:logistic_ui/component/header_panel.dart';
-import 'package:logistic_ui/component/footer_panel.dart';
+import 'package:logistic_ui/request.dart';
 import 'package:logistic_ui/providers.dart';
+import 'package:logistic_ui/model.dart';
+import 'package:angular2/angular2.dart';
+import 'package:angular2/router.dart';
+
+import 'package:logistic_ui/component/home/home.dart';
+import 'package:logistic_ui/component/login/login.dart';
+import 'package:logistic_ui/component/signup/signup.dart';
 
 @Component(
     selector: 'logistic-app',
     templateUrl: 'logistic_app.html',
-    directives: const [ROUTER_DIRECTIVES, HeaderPanel, FooterPanel],
+    directives: const [ROUTER_DIRECTIVES],
     viewProviders: const [LOGISTIC_SERVICE_PROVIDERS])
 @RouteConfig(const [
-  const Route(path: '/', component: HomeComp, name: 'Home'),
-  const Route(path: '/about', component: About, name: 'About'),
-  const Route(path: '/user', component: UserPanel, name: 'Users'),
+  const Route(path: '/home', component: Home, name: 'Home'),
+  const Route(path: '/login', component: Login, name: 'Login'),
+  const Route(path: '/signup', component: Signup, name: 'Signup'),
 ])
-class LogisticApp implements AfterViewInit {
-  @ViewChild(HeaderPanel)
-  HeaderPanel headerPanel;
-  bool isLoading = true;
 
-  @ViewChild(FooterPanel)
-  FooterPanel footerPanel;
+class LogisticApp implements AfterViewInit {
 
   Router router;
-
   LogisticApp(Router this.router) {}
-
   void ngAfterViewInit() {
-    isLoading = false;
-  }
 
-  void goAbout() {
-    router.navigate(['About']);
+    this.router.navigate(['Login']);
   }
 }
 
-@Component(selector: 'd')
-@View(template: '<div>Welcomp {{name}}!</div>')
-class HomeComp {
-  String name;
-  HomeComp() : name = 'Logistic Application' {}
-}
 
-@Component(selector: 'about-h')
-@View(template: '<div>&copy;  2016 - Logistic App</div>')
-class About {}
