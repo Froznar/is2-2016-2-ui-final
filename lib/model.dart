@@ -32,19 +32,18 @@ class User {
 }
 
 @Entity()
-class ProductSales {
-  int idProduct;
-  String name;
-  int  price;
-  int  quantity;
-  static final DateFormat _formatter = new DateFormat("yyyy-MM-dd HH:mm:ss");
-  bool avaible;
-  String productType;
-  String get data => "$name $price";
-  ProductSales(this.idProduct,this.name,this.price, this.quantity, this.productType);
-
+class Product
+{
+  int id;
+  String nameProduct;
+  double price;
+  int stock;
+  int grupo;
+  int subgrupo;
+  int codItem;
+  String codigo;
+  Product(this.id, this.nameProduct, this.price, this.stock, this.grupo,this.subgrupo, this.codItem, this.codigo);
 }
-
 
 @Entity()
 class ProductOut
@@ -53,26 +52,21 @@ class ProductOut
   int quantity;
   String receiver;
   String phone;
-
   ProductOut(this.name, this.quantity, this.receiver, this.phone);
 
 }
-/*
+
 @Entity()
-class Product
-{
-
-  int idProduct;
-  String name;
-  int price;
-  int quantityEntry;
-  int quantityOut;
-  int stack;
-  static final DateFormat _formatter = new DateFormat("yyyy-MM-dd HH:mm:ss");
-  String productType;
-  String receiver;
-  String phone;
-
-  Product(this.idProduct, this.name, this.price, this.quantityEntry, this.quantityOut,this.stack, this.productType, this.receiver, this.phone);
+class Sale {
+  int id;
+  String nameBuyer;
+  int DNI;
+  int RUC;
+  String address;
+  String voucher;
+  List<Product> listProduct;
+  int priceTotal;
+  DateTime dateSale;
+  String get data => "$nameBuyer $DNI $RUC $address $priceTotal";
+  Sale(this.id,this.nameBuyer,this.DNI,this.RUC,this.address,this.priceTotal);
 }
-*/
