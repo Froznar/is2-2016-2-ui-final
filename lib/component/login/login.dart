@@ -5,8 +5,6 @@ import 'package:angular2/router.dart';
 
 
 import 'package:logistic_ui/providers.dart';
-import 'package:logistic_ui/component/home/home.dart';
-import 'package:logistic_ui/component/signup/signup.dart';
 
 @Component(
     selector: 'login',
@@ -20,7 +18,15 @@ class Login extends AfterViewInit {
 
   Router router;
   Login(Router this.router) {}
-  void ngAfterViewInit() {
-    this.router.parent.navigate(['Home']);
+  void ngAfterViewInit() {}
+
+  void fun1() {
+    this.router.parent.navigate(['UserProductManagement']);
+  }
+  void fun2() {
+    this.router.parent.navigate(['UserAdministratorManagement']);
+  }
+  void fun3() {
+    this.router.parent.navigate(['UserAdministratorSales']);
   }
 }

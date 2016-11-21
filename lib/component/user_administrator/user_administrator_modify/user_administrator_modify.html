@@ -1,0 +1,60 @@
+<div  class="centered">
+    <div class="row">
+
+        <div class="col-md-6">
+            <h2> <font color="white">Usuarios</font> </h2>
+        </div>
+
+        <div class="col-md-6">
+            <h2> <font color="white">Modificar Usuario</font> </h2>
+
+            <table style="width:100%">
+                <tr>
+
+                    <td>
+                        <!-- col-lg-4 col-md-offset-4 pone el dropdown en su lugar -->
+                        <div class="dropdown col-lg-4 col-md-offset-4">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownIds" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                <!-- Muestra el elemento elegido de la lista ids definida en logistic_app.dart -->
+                                {{ currentIds }}
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownIds">
+                                <!-- Muestra cada elemento de la lista ids definida en logistic_app.dart -->
+                                <li *ngFor="let id of ids" (click)="catchIds(id)"><a>{{ id }}</a></li>
+                            </ul>
+                        </div>
+                    </td>
+
+                </tr>
+            </table>
+
+            <form role="form">
+
+                <div class="form-group">
+                    <label for="ejemplo_mnombre"> <font color="white">Nombre:</font> </label>
+                    <input [(ngModel)]="mnombre" type="nombre" class="form-control" id="ejemplo_mnombre" placeholder="Modifica el nombre">
+                </div>
+
+                <div class="form-group">
+                    <label for="ejemplo_mapellido"> <font color="white">Apellidos:</font> </label>
+                    <input [(ngModel)]="mapellido" type="apellido" class="form-control" id="ejemplo_mapellido" placeholder="Modifica los apellidos">
+                </div>
+
+                <div class="form-group">
+                    <label for="ejemplo_mcorreo"> <font color="white">Correo:</font> </label>
+                    <input [(ngModel)]="mcorreo" type="correo" class="form-control" id="ejemplo_mcorreo" placeholder="Modifica el correo">
+                </div>
+            </form>
+
+
+            <button (click)="modify()"> Modificar </button>
+
+            <div *ngIf="modified==true">
+                <font color="white"> El usuario se ha modificado. </font>
+            </div>
+
+        </div>
+
+    </div>
+</div>
