@@ -22,7 +22,6 @@ import 'package:logistic_ui/component/footer_panel.dart';
     viewProviders: const [LOGISTIC_SERVICE_PROVIDERS])
 
 @RouteConfig( const [
-
   const Route(path: '/login', component: Login, name: 'Login', useAsDefault:  true),
   const Route(path: '/userproductmanagement', component: UserProductManagement, name: 'UserProductManagement'),
   const Route(path: '/useradministrator', component: UserAdministratorManagement, name: 'UserAdministratorManagement'),

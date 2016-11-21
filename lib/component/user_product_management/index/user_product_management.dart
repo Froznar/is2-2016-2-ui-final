@@ -23,7 +23,7 @@ import 'package:logistic_ui/component/user_product_management/user_product_type_
 class UserProductManagement implements AfterViewInit{
 
   ApplicationService applicationService;
-  ApplicationInfo applicationInfo;// = new ApplicationInfo(name: "DEFAULT APP NAME");
+  ApplicationInfo applicationInfo = new ApplicationInfo(name: "Blazing Box");
   UserProductManagement(ApplicationService this.applicationService);//, Router this.router);
   Router router;
 

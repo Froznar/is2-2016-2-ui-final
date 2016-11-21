@@ -19,10 +19,10 @@ import 'package:logistic_ui/component/user_administrator_sales/user_sales_sales_
       ProductOutComponent, ProductReport, ProductSalesComponent, SalesReport], // ignore: non_constant_list_element
     viewProviders: const [LOGISTIC_SERVICE_PROVIDERS])
 
-class UserAdministratorSales implements AfterViewInit{
+class UserAdministratorSales implements AfterViewInit {
 
   ApplicationService applicationService;
-  ApplicationInfo applicationInfo;// = new ApplicationInfo(name: "DEFAULT APP NAME");
+  ApplicationInfo applicationInfo = new ApplicationInfo(name: "Blazing Box");
   UserAdministratorSales(ApplicationService this.applicationService);//, Router this.router);
   Router router;
 
@@ -44,6 +44,7 @@ class UserAdministratorSales implements AfterViewInit{
     applicationService.getApplicationInfo().then((ApplicationInfo appInfo) {
       applicationInfo = appInfo;
     });
+    print(65);
     this.NavBar=1;
   }
 

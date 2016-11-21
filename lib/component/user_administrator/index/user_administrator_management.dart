@@ -19,7 +19,7 @@ import 'package:logistic_ui/component/user_administrator/user_administrator_regi
 class UserAdministratorManagement implements AfterViewInit {
 
   ApplicationService applicationService;
-  ApplicationInfo applicationInfo;// = new ApplicationInfo(name: "DEFAULT APP NAME");
+  ApplicationInfo applicationInfo = new ApplicationInfo(name: "Blazing Box");
   UserAdministratorManagement(ApplicationService this.applicationService);//, Router this.router);
   Router router;
 
