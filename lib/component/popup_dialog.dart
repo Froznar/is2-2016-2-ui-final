@@ -1,4 +1,4 @@
-library logistic_ui.footer_panel;
+//library logistic_ui.footer_panel;
 
 import 'package:angular2/angular2.dart';
 

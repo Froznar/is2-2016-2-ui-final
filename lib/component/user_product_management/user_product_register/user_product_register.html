@@ -1,0 +1,45 @@
+<div class="centered">
+            <h2> Registrar un nuevo producto</h2>
+            
+                <font color="white">Descripci&oacute;n:</font> <input [(ngModel)]="descripcion"> <button (click)="add()"> Agregar </button>
+            
+            <table style="width:100%">
+                <tr>
+                
+                    <td>
+                    <!-- col-lg-4 col-md-offset-4 pone el dropdown en su lugar -->
+                <div class="dropdown col-lg-4 col-md-offset-4">
+                  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownGroup" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                      <!-- Muestra el elemento elegido de la lista groups definida en logistic_app.dart -->
+                      {{ currentGroup }}
+                    <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownGroup">
+                      <!-- Muestra cada elemento de la lista groups definida en logistic_app.dart -->
+                    <li *ngFor="let group of groups" (click)="catchGroup(group)"><a>{{ group }}</a></li>
+                  </ul>
+                </div>
+                    </td>
+                    
+                    <td>
+                <div class="dropdown col-lg-4 col-md-offset-4">
+                  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownSubGroup" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                      <!-- Muestra el elemento elegido de la lista subGroups definida en logistic_app.dart -->
+                      {{ currentSubGroup }}
+                    <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownSubGroup">
+                      <!-- Muestra cada elemento de la lista subGroups definida en logistic_app.dart -->
+                    <li *ngFor="let subGroup of subGroups" (click)="catchSubGroup(subGroup)"><a>{{ subGroup }}</a></li>
+                  </ul>
+                </div>
+                    </td>
+                    
+                </tr>
+            </table>
+             
+            <div *ngIf="added==true">
+                <font color="white"> Su producto ha sido registrado. </font> 
+            </div>
+            
+         </div>

@@ -1,0 +1,50 @@
+
+<div class="alert alert-info" role="alert" *ngIf="applicationInfo == null">Loading...</div>
+
+<nav class="navbar navbar-custom navbar-fixed-top" *ngIf="applicationInfo != null">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#userproductmanagement">{{applicationInfo.name}}</a>
+        </div>
+        <!-------------------------------------------------------------->
+        <ul class="nav navbar-nav">
+            <li><a href="#userproductmanagement/userproductregister" (click)="onSelect(1)">Registrar producto/material</a></li>
+            <li><a href="#userproductmanagement/userproductproviderregister" (click)="onSelect(2)">Registrar proveedor</a></li>
+            <li><a href="#userproductmanagement/userproducttyperegister" (click)="onSelect(3)">Registrar nuevo tipo de producto/material</a></li>
+            <li><a href="#userproductmanagement/userproductseewarehouse" (click)="onSelect(4)">Ver almac&eacute;n</a></li>
+        </ul>
+    </div><!-- /.container-fluid -->
+</nav>
+<div #content id="content">
+
+    <div class="col-md-12">
+
+        <br><br><br> <!-- placeholder -->
+
+    </div>
+
+    <div *ngIf="NavBar == 1">
+        <user-product-provider-register></user-product-provider-register>
+    </div>
+    <div *ngIf="NavBar == 2">
+        <user-product-register></user-product-register>
+    </div>
+    <div *ngIf="NavBar == 3">
+        <user-product-see-warehouse></user-product-see-warehouse>
+    </div>
+    <div *ngIf="NavBar == 4">
+        <user-product-type-register></user-product-type-register>
+    </div>
+    <div class="col-md-12">
+
+
+    </div>
+</div>
+
