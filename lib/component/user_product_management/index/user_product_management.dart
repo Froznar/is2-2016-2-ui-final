@@ -6,6 +6,7 @@ import 'package:logistic_ui/request.dart';
 import 'package:logistic_ui/providers.dart';
 import 'package:logistic_ui/model.dart';
 
+import 'package:logistic_ui/component/footer_panel.dart';
 import 'package:logistic_ui/component/user_product_management/user_product_register/user_product_register.dart';
 import 'package:logistic_ui/component/user_product_management/user_product_see_warehouse/user_product_see_warehouse.dart';
 import 'package:logistic_ui/component/user_product_management/user_product_provider_register/user_product_provider_register.dart';
@@ -15,7 +16,7 @@ import 'package:logistic_ui/component/user_product_management/user_product_type_
     selector: 'user-product-management',
     templateUrl: 'user_product_management.html',
     directives: const[ROUTER_DIRECTIVES, NgIf, NgFor,
-      UserProductProviderRegister,UserProductRegister,UserProductSeeWarehouse,UserProductTypeRegister],
+      UserProductProviderRegister,UserProductRegister,UserProductSeeWarehouse,UserProductTypeRegister,FooterPanel],
     viewProviders: const [LOGISTIC_SERVICE_PROVIDERS])
 
 class UserProductManagement implements AfterViewInit{
@@ -36,6 +37,9 @@ class UserProductManagement implements AfterViewInit{
 
   @ViewChild(UserProductTypeRegister)
   UserProductTypeRegister userProductTypeRegister;
+
+  @ViewChild(FooterPanel)
+  FooterPanel footerPanel;
 
   var NavBar = 1;
 

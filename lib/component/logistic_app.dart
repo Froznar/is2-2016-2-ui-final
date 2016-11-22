@@ -9,13 +9,12 @@ import 'package:logistic_ui/component/login/login.dart';
 import 'package:logistic_ui/component/user_product_management/index/user_product_management.dart';
 import 'package:logistic_ui/component/user_administrator/index/user_administrator_management.dart';
 import 'package:logistic_ui/component/user_administrator_sales/index/user_administrator_sales.dart';
-import 'package:logistic_ui/component/footer_panel.dart';
 
 
 @Component(
     selector: 'logistic-app',
     templateUrl: 'logistic_app.html',
-    directives: const [ROUTER_DIRECTIVES,FooterPanel],
+    directives: const [ROUTER_DIRECTIVES],
     viewProviders: const [LOGISTIC_SERVICE_PROVIDERS])
 
 

@@ -6,7 +6,7 @@ import 'package:logistic_ui/request.dart';
 import 'package:logistic_ui/providers.dart';
 import 'package:logistic_ui/model.dart';
 
-
+import 'package:logistic_ui/component/footer_panel.dart';
 import 'package:logistic_ui/component/user_administrator/user_administrator_modify/user_administrator_modify.dart';
 import 'package:logistic_ui/component/user_administrator/user_administrator_register/user_administrator_register.dart';
 
@@ -14,7 +14,7 @@ import 'package:logistic_ui/component/user_administrator/user_administrator_regi
     selector: 'user-administrator-management',
     templateUrl: 'user_administrator_management.html',
     directives: const[ROUTER_DIRECTIVES, NgIf, NgFor,
-      UserAdministratorModify,UserAdministratorRegister],
+      UserAdministratorModify,UserAdministratorRegister,FooterPanel],
     viewProviders: const [LOGISTIC_SERVICE_PROVIDERS])
 
 class UserAdministratorManagement implements AfterViewInit {
@@ -29,6 +29,9 @@ class UserAdministratorManagement implements AfterViewInit {
 
   @ViewChild(UserAdministratorRegister)
   UserAdministratorRegister userAdministratorRegister;
+
+  @ViewChild(FooterPanel)
+  FooterPanel footerPanel;
 
   var NavBar = 1;
 

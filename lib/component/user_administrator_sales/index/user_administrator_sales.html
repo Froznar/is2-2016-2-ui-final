@@ -10,15 +10,15 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#userproductmanagement">{{applicationInfo.name}}</a>
+            <a class="navbar-brand" href="#useradministratorsales">{{applicationInfo.name}}</a>
         </div>
         <!-------------------------------------------------------------->
         <div class="col-md-offset-2">
             <ul class="nav navbar-nav">
-                <li><a href="#formSales" (click)="onSelect(1)">Registrar Venta</a></li>
-                <li><a href="#formOut" (click)="onSelect(2)">Registrar Salida de Producto</a></li>
-                <li><a href="#reportOut" (click)="onSelect(3)">Reporte Salidas</a></li>
-                <li><a href="#reportSales" (click)="onSelect(4)">Reporte Ventas</a></li>
+                <li><a href="#useradministratorsales/formsales" (click)="onSelect(1)">Registrar Venta</a></li>
+                <li><a href="#useradministratorsales/formout" (click)="onSelect(2)">Registrar Salida de Producto</a></li>
+                <li><a href="#useradministratorsales/reportout" (click)="onSelect(3)">Reporte Salidas</a></li>
+                <li><a href="#useradministratorsales/reportsales" (click)="onSelect(4)">Reporte Ventas</a></li>
             </ul>
         </div>
     </div><!-- /.container-fluid -->
@@ -48,3 +48,5 @@
 
     </div>
 </div>
+
+<footer-panel></footer-panel>
