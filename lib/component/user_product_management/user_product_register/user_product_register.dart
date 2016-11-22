@@ -5,8 +5,14 @@ import 'package:logistic_ui/request.dart';
 import 'package:logistic_ui/providers.dart';
 import 'package:logistic_ui/model.dart';
 
-@Component(selector: 'user-product-register', viewProviders: const [LOGISTIC_SERVICE_PROVIDERS])
-@View(templateUrl: 'user_product_register.html', directives: const[ROUTER_DIRECTIVES, NgIf, NgFor])
+
+@Component(
+    selector: 'user-product-register',
+    templateUrl: 'user_product_register.html',
+    directives: const[ROUTER_DIRECTIVES, NgIf, NgFor],
+    viewProviders: const [LOGISTIC_SERVICE_PROVIDERS])
+
+
 class UserProductRegister{
     bool added = false;
     List<String> groups = ['Grupo 1', 'Grupo 2', 'Grupo 3'];

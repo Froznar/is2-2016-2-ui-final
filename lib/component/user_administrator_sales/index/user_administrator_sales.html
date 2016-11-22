@@ -1,4 +1,3 @@
-
 <div class="alert alert-info" role="alert" *ngIf="applicationInfo == null">Loading...</div>
 
 <nav class="navbar navbar-custom navbar-fixed-top" *ngIf="applicationInfo != null">
@@ -14,12 +13,14 @@
             <a class="navbar-brand" href="#userproductmanagement">{{applicationInfo.name}}</a>
         </div>
         <!-------------------------------------------------------------->
-        <ul class="nav navbar-nav">
-            <li><a href="#userproductmanagement/userproductregister" (click)="onSelect(1)">Registrar producto/material</a></li>
-            <li><a href="#userproductmanagement/userproductproviderregister" (click)="onSelect(2)">Registrar proveedor</a></li>
-            <li><a href="#userproductmanagement/userproducttyperegister" (click)="onSelect(3)">Registrar nuevo tipo de producto/material</a></li>
-            <li><a href="#userproductmanagement/userproductseewarehouse" (click)="onSelect(4)">Ver almac&eacute;n</a></li>
-        </ul>
+        <div class="col-md-offset-2">
+            <ul class="nav navbar-nav">
+                <li><a href="#formSales" (click)="onSelect(1)">Registrar Venta</a></li>
+                <li><a href="#formOut" (click)="onSelect(2)">Registrar Salida de Producto</a></li>
+                <li><a href="#reportOut" (click)="onSelect(3)">Reporte Salidas</a></li>
+                <li><a href="#reportSales" (click)="onSelect(4)">Reporte Ventas</a></li>
+            </ul>
+        </div>
     </div><!-- /.container-fluid -->
 </nav>
 <div #content id="content">
@@ -31,20 +32,19 @@
     </div>
 
     <div *ngIf="NavBar == 1">
-        <user-product-provider-register></user-product-provider-register>
+        <product-sales></product-sales>
     </div>
     <div *ngIf="NavBar == 2">
-        <user-product-register></user-product-register>
+        <product-out></product-out>
     </div>
-    <div *ngIf="NavBar == 3">
-        <user-product-see-warehouse></user-product-see-warehouse>
+    <div *ngIf="NavBar == 2">
+        <product-report></product-report>
     </div>
     <div *ngIf="NavBar == 4">
-        <user-product-type-register></user-product-type-register>
+        <sales-report></sales-report>
     </div>
     <div class="col-md-12">
 
 
     </div>
 </div>
-

@@ -7,12 +7,11 @@ import 'package:logistic_ui/model.dart';
 
 
 @Component(
-    selector: 'user-administrator-modify',
-    templateUrl: 'user_administrator_modify.html',
+    selector: 'sales-report',
+    templateUrl: 'sales_report.html',
     directives: const[ROUTER_DIRECTIVES, NgIf, NgFor],
     viewProviders: const [LOGISTIC_SERVICE_PROVIDERS])
 
-class UserAdministratorModify{
-
+class SalesReport {
 
 }
