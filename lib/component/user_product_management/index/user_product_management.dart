@@ -6,12 +6,10 @@ import 'package:logistic_ui/request.dart';
 import 'package:logistic_ui/providers.dart';
 import 'package:logistic_ui/model.dart';
 
-
 import 'package:logistic_ui/component/user_product_management/user_product_register/user_product_register.dart';
 import 'package:logistic_ui/component/user_product_management/user_product_see_warehouse/user_product_see_warehouse.dart';
 import 'package:logistic_ui/component/user_product_management/user_product_provider_register/user_product_provider_register.dart';
 import 'package:logistic_ui/component/user_product_management/user_product_type_register/user_product_type_register.dart';
-
 
 @Component(
     selector: 'user-product-management',
@@ -51,6 +49,4 @@ class UserProductManagement implements AfterViewInit{
   void onSelect(var navBar) {
     NavBar = navBar;
   }
-
-
 }

@@ -25,7 +25,9 @@ transformers:
 - dart_to_js_script_rewriter
 
 - $dart2js:
+
     commandLineOptions: [--show-package-warnings]
 
 dev_dependencies:
   test: ^0.12.3
+

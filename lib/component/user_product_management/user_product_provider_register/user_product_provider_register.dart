@@ -6,7 +6,6 @@ import 'package:logistic_ui/providers.dart';
 import 'package:logistic_ui/model.dart';
 
 
-
 @Component(
     selector: 'user-product-provider-register',
     templateUrl: 'user_product_provider_register.html',
@@ -14,7 +13,6 @@ import 'package:logistic_ui/model.dart';
     viewProviders: const [LOGISTIC_SERVICE_PROVIDERS])
 
 class UserProductProviderRegister {
-
 
 
 }

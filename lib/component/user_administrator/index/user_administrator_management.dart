@@ -6,6 +6,7 @@ import 'package:logistic_ui/request.dart';
 import 'package:logistic_ui/providers.dart';
 import 'package:logistic_ui/model.dart';
 
+
 import 'package:logistic_ui/component/user_administrator/user_administrator_modify/user_administrator_modify.dart';
 import 'package:logistic_ui/component/user_administrator/user_administrator_register/user_administrator_register.dart';
 
@@ -41,6 +42,5 @@ class UserAdministratorManagement implements AfterViewInit {
   void onSelect(var navBar) {
     NavBar = navBar;
   }
-
 
 }

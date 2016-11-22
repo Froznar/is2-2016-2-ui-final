@@ -16,7 +16,7 @@ import 'package:logistic_ui/component/user_administrator_sales/user_sales_sales_
     selector: 'user-administrator-sales',
     templateUrl: 'user_administrator_sales.html',
     directives: const[ROUTER_DIRECTIVES, NgIf, NgFor,
-      ProductOutComponent, ProductReport, ProductSalesComponent, SalesReport], // ignore: non_constant_list_element
+      ProductOutComponent, ProductReport, ProductSalesComponent, SalesReport],
     viewProviders: const [LOGISTIC_SERVICE_PROVIDERS])
 
 class UserAdministratorSales implements AfterViewInit {

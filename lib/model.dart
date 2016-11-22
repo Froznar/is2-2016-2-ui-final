@@ -93,4 +93,6 @@ class Product
 
   Product(this.idProduct, this.name, this.price, this.quantityEntry, this.quantityOut,this.stack, this.productType, this.receiver, this.phone);
 }
+
 */
+

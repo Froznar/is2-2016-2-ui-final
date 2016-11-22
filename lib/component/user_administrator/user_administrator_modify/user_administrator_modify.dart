@@ -5,6 +5,7 @@ import 'package:logistic_ui/request.dart';
 import 'package:logistic_ui/providers.dart';
 import 'package:logistic_ui/model.dart';
 
+
 @Component(
     selector: 'user-administrator-modify',
     templateUrl: 'user_administrator_modify.html',
@@ -12,5 +13,6 @@ import 'package:logistic_ui/model.dart';
     viewProviders: const [LOGISTIC_SERVICE_PROVIDERS])
 
 class UserAdministratorModify{
+
 
 }
