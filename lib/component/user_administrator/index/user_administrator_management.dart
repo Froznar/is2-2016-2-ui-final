@@ -6,8 +6,8 @@ import 'package:logistic_ui/request.dart';
 import 'package:logistic_ui/providers.dart';
 import 'package:logistic_ui/model.dart';
 import 'package:logistic_ui/component/footer_panel.dart';
-import 'package:logistic_ui/component/user_administrator_management/user_administrator_modify/user_administrator_modify.dart';
-import 'package:logistic_ui/component/user_administrator_management/user_administrator_register/user_administrator_register.dart';
+import 'package:logistic_ui/component/user_administrator/user_administrator_modify/user_administrator_modify.dart';
+import 'package:logistic_ui/component/user_administrator/user_administrator_register/user_administrator_register.dart';
 
 
 @Component(

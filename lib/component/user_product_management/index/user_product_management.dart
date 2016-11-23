@@ -1,3 +1,4 @@
+library logistic_ui.user_product_management;
 
 import 'package:angular2/angular2.dart';
 import 'package:angular2/router.dart';
