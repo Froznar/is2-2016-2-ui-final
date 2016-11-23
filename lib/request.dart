@@ -83,7 +83,19 @@ class ApplicationService extends BaseService {
     String responseText = await get('rest/v1/users');
     return dson.decode(responseText, new User(), true);
   }
-  Future<ApplicationInfo> getApplicationInfo() {
+
+  /*Apllication paA Producto*/
+  Future<Product> getProductByName(String name) async {
+    String responseText = await get('product/v1/productName/name/$name');
+    return dson.decode(responseText, new Product(), true);
+  }
+/*
+  Future<User> getUserByAccount(String account) async {
+    String responseText = await get('user/v1/user/account/$account');
+    return dson.decode(responseText, new User(), false);
+*/
+
+    Future<ApplicationInfo> getApplicationInfo() {
     ApplicationInfo appInfo = new ApplicationInfo(name: "Blazing Box", version: "0.0.1.DEV-MODE", buildInfo:
     new ApplicationBuildInfo(revision: "000", branch: "none", buildTime: new DateTime.now()));
     return (new Completer<ApplicationInfo>()..complete(appInfo)).future;

@@ -42,7 +42,7 @@ class Product
   int subgrupo;
   int codItem;
   String codigo;
-  Product(this.id, this.nameProduct, this.price, this.stock, this.grupo,this.subgrupo, this.codItem, this.codigo);
+  //Product(this.id, this.nameProduct, this.price, this.stock, this.grupo,this.subgrupo, this.codItem, this.codigo);
 }
 
 @Entity()
