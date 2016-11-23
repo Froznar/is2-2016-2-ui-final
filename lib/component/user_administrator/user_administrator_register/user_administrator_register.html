@@ -2,56 +2,8 @@
     <div class="row">
 
         <div class="col-md-6">
-            <h2> <font color="white">Registrar Usuario</font> </h2>
-
-            <form role="form">
-                <div class="form-group">
-                    <label for="ejemplo_nombre"> <font color="white">Nombre:</font> </label>
-                    <input [(ngModel)]="nombre" type="nombre" class="form-control" id="ejemplo_nombre" placeholder="Introduce tu nombre">
-                </div>
-
-                <div class="form-group">
-                    <label for="ejemplo_apellido"> <font color="white">Apellidos:</font> </label>
-                    <input [(ngModel)]="apellido" type="apellido" class="form-control" id="ejemplo_apellido" placeholder="Introduce tus apellidos">
-                </div>
-
-                <div class="form-group">
-                    <label for="ejemplo_correo"> <font color="white">Correo:</font> </label>
-                    <input [(ngModel)]="correo" type="correo" class="form-control" id="ejemplo_correo" placeholder="Introduce tu correo">
-                </div>
-            </form>
-
-            <table style="width:100%">
-                <tr>
-
-                    <td>
-                        <!-- col-lg-4 col-md-offset-4 pone el dropdown en su lugar -->
-                        <div class="dropdown col-lg-4 col-md-offset-4">
-                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownType" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                <!-- Muestra el elemento elegido de la lista type definida en logistic_app.dart -->
-                                {{ currentType }}
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownType">
-                                <!-- Muestra cada elemento de la lista type definida en logistic_app.dart -->
-                                <li *ngFor="let types of type" (click)="catchType(types)"><a>{{ types }}</a></li>
-                            </ul>
-                        </div>
-                    </td>
-
-                </tr>
-            </table>
-
-            <button (click)="add()"> Agregar </button>
-
-            <div *ngIf="added==true">
-                <font color="white"> El usuario se ha agregado. </font>
-            </div>
+            <h2> REgistrar ususriao </h2>
         </div>
 
-
-        <div class="col-md-6">
-            <h2> <font color="white">Usuarios</font> </h2>
-        </div>
     </div>
 </div>
