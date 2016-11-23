@@ -1,0 +1,52 @@
+<div class="alert alert-info" role="alert" *ngIf="applicationInfo == null">Loading...</div>
+
+<nav class="navbar navbar-custom navbar-fixed-top" *ngIf="applicationInfo != null">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#useradministratorsales">{{applicationInfo.name}}</a>
+        </div>
+        <!-------------------------------------------------------------->
+        <div class="col-md-offset-2">
+            <ul class="nav navbar-nav">
+                <li><a href="#useradministratorsales/formsales" (click)="onSelect(1)">Registrar Venta</a></li>
+                <li><a href="#useradministratorsales/formout" (click)="onSelect(2)">Registrar Salida de Producto</a></li>
+                <li><a href="#useradministratorsales/reportout" (click)="onSelect(3)">Reporte Salidas</a></li>
+                <li><a href="#useradministratorsales/reportsales" (click)="onSelect(4)">Reporte Ventas</a></li>
+            </ul>
+        </div>
+    </div><!-- /.container-fluid -->
+</nav>
+<div #content id="content">
+
+    <div class="col-md-12">
+
+        <br><br><br> <!-- placeholder -->
+
+    </div>
+
+    <div *ngIf="NavBar == 1">
+        <product-sales></product-sales>
+    </div>
+    <div *ngIf="NavBar == 2">
+        <product-out></product-out>
+    </div>
+    <div *ngIf="NavBar == 3">
+        <product-report></product-report>
+    </div>
+    <div *ngIf="NavBar == 4">
+        <sales-report></sales-report>
+    </div>
+    <div class="col-md-12">
+
+
+    </div>
+</div>
+
+<footer-panel></footer-panel>

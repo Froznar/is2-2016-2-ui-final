@@ -9,4 +9,5 @@ import 'package:logistic_ui/component/logistic_app.dart';
 
 main() {
   bootstrap(LogisticApp, [ROUTER_PROVIDERS, new Provider(LocationStrategy, useClass: HashLocationStrategy)]);
+
 }

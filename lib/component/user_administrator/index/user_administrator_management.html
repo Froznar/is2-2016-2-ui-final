@@ -1,0 +1,46 @@
+<div class="alert alert-info" role="alert" *ngIf="applicationInfo == null">Loading...</div>
+
+<nav class="navbar navbar-custom navbar-fixed-top" *ngIf="applicationInfo != null">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#useradministrator">{{applicationInfo.name}}</a>
+        </div>
+        <!-------------------------------------------------------------->
+        <div class="col-md-offset-4">
+            <ul class="nav navbar-nav navbar-justified">
+                <li><a href="#useradministrator" (click)="onSelect(1)">Registrar Usuario</a></li>
+                <li><a href="#useradministrator" (click)="onSelect(2)">Modificar Usuario</a></li>
+            </ul>
+        </div>
+    </div><!-- /.container-fluid -->
+</nav>
+<div #content id="content">
+
+    <div class="col-md-12">
+
+        <br><br><br> <!-- placeholder -->
+
+    </div>
+
+    <div *ngIf="NavBar == 1">
+        <user-administrator-register></user-administrator-register>
+    </div>
+    <div *ngIf="NavBar == 2">
+        <user-administrator-modify></user-administrator-modify>
+    </div>
+
+
+    <div class="col-md-12">
+
+
+    </div>
+</div>
+
+<footer-panel></footer-panel>
