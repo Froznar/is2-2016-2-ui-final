@@ -73,21 +73,31 @@ class ApplicationService extends BaseService {
   Future<User> getUser(int id) {
     Completer<User> completer = new Completer<User>();
 
-    get('rest/v1/user?id=$id').then((responseText){
+    get('user/v1/user/$id').then((responseText){
       User user = dson.decode(responseText, new User(), false);
       completer.complete(user);
     });
     return completer.future;
   }
-  Future<List<User>> getUsers() async {
-    String responseText = await get('rest/v1/users');
-    return dson.decode(responseText, new User(), true);
-  }
+//  Future<List<User>> getUsers() async {
+//    String responseText = await get('rest/v1/users');
+//    return dson.decode(responseText, new User(), true);
+//  }
 
   /*Apllication paA Producto*/
-  Future<Product> getProductByName(String name) async {
-    String responseText = await get('product/v1/productName/name/$name');
-    return dson.decode(responseText, new Product(), true);
+//  Future<Product> getProductByName(String name) async {
+//    String responseText = await get('product/v1/productName/name/$name');
+//    return dson.decode(responseText, new Product(), true);
+//  }
+
+  Future<Product> getProductByName(String name) {
+    Completer<Product> completer = new Completer<Product>();
+
+    get('product/v1/productName/$name').then((responseText){
+      Product product = dson.decode(responseText, new Product(), false);
+      completer.complete(product);
+    });
+    return completer.future;
   }
 /*
   Future<User> getUserByAccount(String account) async {

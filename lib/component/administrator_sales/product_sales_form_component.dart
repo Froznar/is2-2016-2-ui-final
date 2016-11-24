@@ -22,10 +22,13 @@ class ProductSalesFormComponent extends AfterViewInit {
   void ngAfterViewInit() {}
 
   List<String> get products => _products;
+  String name_product;
+  List<Product> listProduct = new List<Product>();
+
   bool submitted = false;
   bool checkP = false;
   Product producto = new Product();
-  Product product;
+  Product product ;
   //Product model = new Product(1,_products[0],88.3,170,1,2,6556,"01-02-6556");
   Sale    model1= new Sale(1,"Batman Oscuro",72547290,7987987,"Los Panchitos",0);
   onSubmit() {
@@ -34,13 +37,20 @@ class ProductSalesFormComponent extends AfterViewInit {
   /*Boton que Verifica los Datos del Producto en la BD*/
 
   void onCheckProduct(String name) {
+    print(name);
     applicationService.getProductByName(name).then((Product product) {
       this.product=product;
       checkP = true;
-
+      if(product!=Null) print(product.nameProduct);
     });
   }
+  void listProductAdd(){
+    this.listProduct.add(product);
+  }
 
+  void set data(Product product) {
+    this.product = product;
+  }
 }
 
 

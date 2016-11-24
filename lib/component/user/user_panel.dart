@@ -13,9 +13,9 @@ class UserPanel implements AfterViewInit {
   UserPanel(this.applicationService);
 
   void ngAfterViewInit() {
-    applicationService.getUsers().then((List<User> users) {
-      this.users = users;
-    });
+//    applicationService.getUsers().then((List<User> users) {
+//      this.users = users;
+//    });
   }
 
   void set data(List<User> users) {
