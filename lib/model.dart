@@ -67,6 +67,6 @@ class Sale {
   List<Product> listProduct;
   int priceTotal;
   DateTime dateSale;
-  String get data => "$nameBuyer $DNI $RUC $address $priceTotal";
-  Sale(this.id,this.nameBuyer,this.DNI,this.RUC,this.address,this.priceTotal);
+  //String get data => "$nameBuyer $DNI $RUC $address $priceTotal";
+  //Sale(this.id,this.nameBuyer,this.DNI,this.RUC,this.address,this.priceTotal);
 }

@@ -27,10 +27,10 @@ class ProductSalesFormComponent extends AfterViewInit {
 
   bool submitted = false;
   bool checkP = false;
-  Product producto = new Product();
+  Sale sale;
   Product product ;
   //Product model = new Product(1,_products[0],88.3,170,1,2,6556,"01-02-6556");
-  Sale    model1= new Sale(1,"Batman Oscuro",72547290,7987987,"Los Panchitos",0);
+  //Sale    model1= new Sale(1,"Batman Oscuro",72547290,7987987,"Los Panchitos",0);
   onSubmit() {
     submitted = true;
   }
@@ -44,12 +44,23 @@ class ProductSalesFormComponent extends AfterViewInit {
       if(product!=Null) print(product.nameProduct);
     });
   }
+  void onRegisterSale(String name_buyer,String dni,String ruc,String address, String voucher,String price_total )
+  {
+    String date= "now";
+    String datos=name_buyer+"-"+dni+"-"+ruc+"-"+address+"-"+voucher+"-"+price_total+"-"+date;
+    applicationService.setSale(datos);
+    this.sale=sale;
+
+  }
   void listProductAdd(){
     this.listProduct.add(product);
   }
 
   void set data(Product product) {
     this.product = product;
+  }
+  void set dataSale(Product product) {
+    this.sale = sale;
   }
 }
 
