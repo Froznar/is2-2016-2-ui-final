@@ -1,30 +1,29 @@
 <div class="login" *ngIf="userType==0">
-    <div class="container">
-        <div class="row log">
-            <div class="col-md-4 col-md-offset-2 cent" >
-                <fieldset>
+  <div class="container">
+    <div class="row log">
+      <div class="col-md-4 col-md-offset-2 cent" >
+        <fieldset>
+          <h2 class="normalfont">Ingresa y descubre una nueva experiencia</h2>
+          <h5 class="titlefont"> User</h5>
+          <input type="text" name="userAccount" required [(ngModel)]="userAccount" />
+          <h5 class="titlefont"> Password</h5>
+          <input type="password" name="userPassword" required [(ngModel)]="userPassword" />
 
-                    <h2 class="normalfont">Ingresa y descubre una nueva experiencia</h2>
-                    <h5 class="titlefont"> User</h5>
-                    <input type="text" name="userAccount" required [(ngModel)]="userAccount" />
-                    <h5 class="titlefont"> Password</h5>
-                    <input type="password" name="userPassword" required [(ngModel)]="userPassword" />
 
+          <p>
+            <input class="btn btn-default" type="button" value="Submit" (click)="checkUser(userAccount,userPassword)" />
+            <br><br>
+            <span ng-bind="Message"></span>
+          </p>
 
-                    <p>
-                        <input class="btn btn-default" type="button" value="Submit" (click)="checkUser(userAccount,userPassword)" />
-                        <br><br>
-                        <span ng-bind="Message"></span>
-                    </p>
-
-                </fieldset>
-            </div>
-            <div class="col-md-4 cent">
-                <h3 class="titlefont">Hertzz Music</h3>
-                <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Register</button>
-            </div>
-        </div>
+        </fieldset>
+      </div>
+      <div class="col-md-4 cent">
+        <h3 class="titlefont">Hertzz Music</h3>
+        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Register</button>
+      </div>
     </div>
+  </div>
 </div>
 
 
