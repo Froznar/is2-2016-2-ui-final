@@ -29,8 +29,15 @@ class ProductSalesFormComponent extends AfterViewInit {
   bool checkP = false;
   Sale sale;
   Product product ;
+
   //Product model = new Product(1,_products[0],88.3,170,1,2,6556,"01-02-6556");
   //Sale    model1= new Sale(1,"Batman Oscuro",72547290,7987987,"Los Panchitos",0);
+  String name_buyer;
+  String dni;
+  String ruc;
+  String address;
+  String voucher;
+  String price_total;
   onSubmit() {
     submitted = true;
   }

@@ -7,15 +7,8 @@
     <h1>Registro de Venta</h1>
     <form (ngSubmit)="onSubmit()" #productFormSales="ngForm">
       <div class="form-group">
-        <!--<label for="name_product"><font color="white">Busque un Producto:</font></label>-->
         <input type="text" name="name_product" required [(ngModel)]="name_product" />
-      <!--  <select class="form-control" required
-                [(ngModel)]="product.nameProduct"
-                ngControl="nameProduct" >
-          <option *ngFor="let u of products" [value]="u">{{u}}</option>
-        </select>-->
-
-      </div>
+         </div>
       <p>
         <input class="btn btn-default" type="button" value="Ver Producto" (click)="onCheckProduct(name_product)" />
         <br><br>
@@ -43,37 +36,44 @@
 
 
       <div class="form-group">
-        <label for="nameBuyer"><font color="white">Nombre del Comprador:</font></label>
-        <input type="text" class="form-control" required>
+        <label><font color="white">Nombre del Comprador:</font></label>
+          <input placeholder="" type="text" tabindex="1" required [(ngModel)]="name_buyer">
 
       </div>
       <div class="form-group">
-        <label for="DNI"><font color="white">DNI:</font></label>
-        <input type="number" class="form-control" required>
-
-      </div>
-
-      <div class="form-group">
-        <label for="RUC"><font color="white">RUC:</font></label>
-        <input type="number" class="form-control" required>
+        <label ><font color="white">DNI:</font></label>
+          <input placeholder="" type="text" tabindex="1" required [(ngModel)]="dni">
+          <!--<input type="number"  name="dni" class="form-control" required>-->
 
       </div>
 
       <div class="form-group">
-        <label for="address"><font color="white">Ingrese su Direccion:</font></label>
-        <input type="text" class="form-control" required>
+        <label><font color="white">RUC:</font></label>
+          <input placeholder="" type="text" tabindex="1" required [(ngModel)]="ruc">
+          <!--<input type="number" name="ruc" class="form-control" required>-->
 
       </div>
 
       <div class="form-group">
-        <label for="priceTotal"><font color="white">Precio Total:</font></label>
-        <input type="text" class="form-control" required>
+        <label ><font color="white">Ingrese su Direccion:</font></label>
+          <input placeholder="" type="text" tabindex="1" required [(ngModel)]="address">
 
-          
       </div>
 
-      <button type="submit" class="btn btn-default"
-              [disabled]="!productFormSales.form.valid">Comprar</button>
+        <div class="form-group">
+            <label ><font color="white">Voucher:</font></label>
+            <input placeholder="" type="text" tabindex="1" required [(ngModel)]="voucher">
+
+        </div>
+
+      <div class="form-group">
+        <label ><font color="white">Precio Total:</font></label>
+          <input placeholder="" type="text" tabindex="1" required [(ngModel)]="price_total">
+
+      </div>
+
+        <button type="submit" class="btn btn-default" (click)="onRegisterSale(name_buyer,dni,ruc,address,voucher,price_total)" >Agregar</button>
+
     </form>
   </div>
   </div>
