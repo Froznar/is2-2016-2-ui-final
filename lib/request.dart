@@ -5,6 +5,7 @@ import 'dart:html';
 import 'package:angular2/angular2.dart';
 import 'package:dartson/dartson.dart';
 import 'package:dartson/transformers/date_time.dart';
+
 import 'package:logistic_ui/model.dart';
 
 final bool DEVELOPMENT_MODE = window.location.port == "8080";
@@ -79,6 +80,7 @@ class ApplicationService extends BaseService {
     });
     return completer.future;
   }
+  
   Future<List<User>> getUsers() async {
     String responseText = await get('rest/v1/users');
     return dson.decode(responseText, new User(), true);
@@ -87,10 +89,19 @@ class ApplicationService extends BaseService {
     String responseText = await get('user/v1/user/account/$account');
     return dson.decode(responseText, new User(), false);
   }
+
+  Future<UserProvider> addProvider(String name) async {
+    String responseText = await get('provider/v1/provider/insert/$name');
+    return dson.decode(responseText, new UserProvider(), false);
+  }
+
+
   Future<List<UserProvider>> getUserProvider(String name) async {
     String responseText = await get('proveedor/v1/proveedor/name/$name');
     return dson.decode(responseText, new UserProvider(), true);
   }
+
+
   Future<ApplicationInfo> getApplicationInfo() {
     ApplicationInfo appInfo = new ApplicationInfo(name: "Blazing Box", version: "0.0.1.DEV-MODE", buildInfo:
     new ApplicationBuildInfo(revision: "000", branch: "none", buildTime: new DateTime.now()));
