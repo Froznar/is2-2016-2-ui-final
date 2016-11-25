@@ -95,6 +95,10 @@ class ApplicationService extends BaseService {
     return dson.decode(responseText, new UserProvider(), false);
   }
 
+  Future<User> addUser(String name) async {
+    String responseText = await get('user_administrator/v1/user_administrator/insert/$name');
+    return dson.decode(responseText, new User(), false);
+  }
 
   Future<List<UserProvider>> getUserProvider(String name) async {
     String responseText = await get('proveedor/v1/proveedor/name/$name');

@@ -14,5 +14,32 @@ import 'package:logistic_ui/model.dart';
 
 class UserAdministratorRegister{
 
+  Router router;
+  ApplicationService applicationService;
+  UserAdministratorRegister(ApplicationService this.applicationService, Router this.router) {}
+  User user;
 
+  List<String> type = ['Administrador de Ventas', 'Administrador de Producto'];
+  String currentType = 'Tipo de usuario';
+  bool added = false;
+
+  String first_name;
+  String last_name;
+  String email;
+  String account;
+  String password;
+  String user_type;
+  int tipo;
+
+  void catchType(String type){
+    this.currentType = type;
+  }
+
+  void addUser(String first_name,String last_name,String email,String account,String password,String user_type) {
+    String datos=first_name+"-"+last_name+"-"+email+"-"+account+"-"+password+"-"+user_type;
+    print(datos);
+    applicationService.addUser(datos).then((User user) {
+    });
+    added =true;
+  }
 }
