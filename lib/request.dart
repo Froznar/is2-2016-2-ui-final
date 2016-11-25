@@ -79,6 +79,7 @@ class ApplicationService extends BaseService {
     });
     return completer.future;
   }
+  
   Future<List<User>> getUsers() async {
     String responseText = await get('rest/v1/users');
     return dson.decode(responseText, new User(), true);
@@ -91,6 +92,31 @@ class ApplicationService extends BaseService {
     String responseText = await get('proveedor/v1/proveedor/name/$name');
     return dson.decode(responseText, new UserProvider(), true);
   }
+
+  Future<Product> getProductByName(String name) {
+    Completer<Product> completer = new Completer<Product>();
+
+    get('product/v1/productName/$name').then((responseText){
+      Product product = dson.decode(responseText, new Product(), false);
+      completer.complete(product);
+    });
+    return completer.future;
+  }
+
+  Future<Sale> setSale(String data) {
+    Completer<Sale> completer = new Completer<Sale>();
+
+    get('sale/v1/saleInsert/$data').then((responseText){
+      Sale sale = dson.decode(responseText, new Sale(), false);
+      completer.complete(sale);
+    });
+    return completer.future;
+  }
+
+
+  
+
+
   Future<ApplicationInfo> getApplicationInfo() {
     ApplicationInfo appInfo = new ApplicationInfo(name: "Blazing Box", version: "0.0.1.DEV-MODE", buildInfo:
     new ApplicationBuildInfo(revision: "000", branch: "none", buildTime: new DateTime.now()));
