@@ -82,7 +82,7 @@ class ApplicationService extends BaseService {
   }
   
   Future<List<User>> getUsers() async {
-    String responseText = await get('rest/v1/users');
+    String responseText = await get('user/v1/all');
     return dson.decode(responseText, new User(), true);
   }
   Future<User> getUserByAccount(String account) async {

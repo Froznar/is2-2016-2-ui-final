@@ -2,62 +2,51 @@
   <div class="row">
 
     <div class="col-md-6">
-      <h2> <font color="white">Registrar Usuario</font> </h2>
+      <h2>Registrar Usuario</h2>
 
       <form role="form">
         <div class="form-group">
-          <label for="ejemplo_nombre"> <font color="white">Nombre:</font> </label>
-          <input [(ngModel)]="first_name" type="nombre" class="form-control" id="ejemplo_nombre" placeholder="Introduce tu nombre">
+          <label>Nombre:</label>
+          <input [(ngModel)]="first_name" type="text" class="form-control" placeholder="Nombre">
         </div>
 
         <div class="form-group">
-          <label for="ejemplo_apellido"> <font color="white">Apellidos:</font> </label>
-          <input [(ngModel)]="last_name" type="apellido" class="form-control" id="ejemplo_apellido" placeholder="Introduce tus apellidos">
+          <label>Apellidos:</label>
+          <input [(ngModel)]="last_name" type="text" class="form-control" placeholder="Apellidos">
         </div>
 
         <div class="form-group">
-          <label for="ejemplo_correo"> <font color="white">Correo:</font> </label>
-          <input [(ngModel)]="email" type="correo" class="form-control" id="ejemplo_correo" placeholder="Introduce tu correo">
+          <label>Correo:</label>
+          <input [(ngModel)]="email" type="text" class="form-control" placeholder="Correo">
         </div>
 
         <div class="form-group">
-          <label for="ejemplo_correo"> <font color="white">Cuenta:</font> </label>
-          <input [(ngModel)]="account" type="correo" class="form-control" id="ejemplo_correo" placeholder="Introduce tu correo">
+          <label>Cuenta:</label>
+          <input [(ngModel)]="account" type="text" class="form-control" placeholder="Nombre de la cuenta">
         </div>
 
         <div class="form-group">
-          <label for="ejemplo_correo"> <font color="white">Password:</font> </label>
-          <input [(ngModel)]="password" type="correo" class="form-control" id="ejemplo_correo" placeholder="Introduce tu correo">
+          <label>Password:</label>
+          <input [(ngModel)]="password" type="password" class="form-control" placeholder="Contraña">
         </div>
 
         <div class="form-group">
-          <label for="ejemplo_correo"> <font color="white">Tipo:</font> </label>
-          <input [(ngModel)]="user_type" type="correo" class="form-control" id="ejemplo_correo" placeholder="Introduce tu correo">
+          <div class="col-md-3"> <label>Tipo de Usuario</label> </div>
+          <div class="cols-md-9">
+            <div class="input-group">
+              <select [(ngModel)]="user_type" name="state" class="form-control selectpicker" >
+                <option value=" " >Seleccione el tipo de usuario</option>
+                <option>Administrador</option>
+                <option>Almacenero</option>
+                <option>Vendedor</option>
+              </select>
+            </div>
+          </div>
         </div>
+
       </form>
 
-      <table style="width:100%">
-        <tr>
-
-          <td>
-            <!-- col-lg-4 col-md-offset-4 pone el dropdown en su lugar -->
-            <div class="dropdown col-lg-4 col-md-offset-4">
-              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownType" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                <!-- Muestra el elemento elegido de la lista type definida en logistic_app.dart -->
-                {{ currentType }}
-                <span class="caret"></span>
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownType">
-                <!-- Muestra cada elemento de la lista type definida en logistic_app.dart -->
-                <li *ngFor="let types of type" (click)="catchType(types)"><a>{{ types }}</a></li>
-              </ul>
-            </div>
-          </td>
-
-        </tr>
-      </table>
-
-      <button (click)="addUser(first_name,last_name, email, account, password, user_type)"> Agregar </button>
+      <button class="btn btn-primary btn-lg" (click)="addUser(first_name,last_name, email, account, password, user_type)"> Agregar </button>
 
       <div *ngIf="added==true">
         <font color="white"> El usuario se ha agregado. </font>
@@ -66,7 +55,26 @@
 
 
     <div class="col-md-6">
-      <h2> <font color="white">Usuarios</font> </h2>
+      <h2>Lista de Usuarios </h2>
+
+      <table class="table right-table table-hover">
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Usuario</th>
+          <th>Tipo</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let user of users" >
+          <td>{{user.id}}</td>
+          <td>{{user.name}}</td>
+          <td>{{user.account}}</td>
+          <td>{{user.user_type}}</td>
+        </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
