@@ -11,7 +11,7 @@ import 'package:logistic_ui/model.dart';
 @View(templateUrl: 'user_product_see_warehouse.html', directives: const[ROUTER_DIRECTIVES, NgIf, NgFor])
 class UserProductSeeWarehouse {
   bool added = false;
-
+  String FindProduct;
   void addFindProduct(){
     this.added = true;
   }
