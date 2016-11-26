@@ -19,7 +19,7 @@ class ProductOutComponent {
   ProductOutComponent(ApplicationService this.applicationService) {}
   void ngAfterViewInit() {}
 
-  List<String> get products => _products;
+  //List<String> get products => products;
   String name_product;
   List<Product> listProduct = new List<Product>(); //inicializo la lista de productos
 
@@ -32,6 +32,7 @@ class ProductOutComponent {
   String address;
   String voucher;
   String price_total;
+  double  price_total1 = 0.0;
 
   onSubmit() {
     submitted = true;
@@ -64,7 +65,10 @@ class ProductOutComponent {
   void set dataOut(Product product) {
     this.out = out;
   }
-//  void set precio(){
-//    for
-//  }
+  void priceTotal(){
+    for (int i = 1; i < listProduct.length ; i++) {
+      price_total1 = price_total1 + listProduct[i].price;
+    }
+    this.price_total = price_total1.toString();
+  }
 }
