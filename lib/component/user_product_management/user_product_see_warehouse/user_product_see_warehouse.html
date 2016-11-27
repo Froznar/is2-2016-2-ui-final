@@ -1,25 +1,21 @@
- <div class="centered">
-            <!-- Aquí van las opciones de ver almacén -->
+ <div  class="centered">
+     <div class="row">
+         <div class="col-md-6">
              <h2> Ver Almac&eacute;n</h2>
-     <table style="width:100%">
-         <tr>
-             <td>
-                 <div class="dropdown col-lg-4 col-md-offset-4">
-                     <img src="packages/logistic_ui/app/images/mapa1.jpg" width="600" height="400"/>
-
-                 </div>
-             </td>
-
-             <td>
-                 <div class="dropdown col-lg-4 col-md-offset-4">
-                     <font color="white">Producto:</font> <input [(ngModel)]="descripcion"> <button (click)="addFindProduct()"> Buscar </button>
-                 </div>
-             </td>
-         </tr>
-     </table>
-     <div *ngIf="added==true">
-         <font color="white"> Su producto ha sido encontrado. </font>
+             <form>
+                 <fieldset>
+                     <img src="packages/logistic_ui/app/images/mapa1.jpg" width="680" height="442"/>
+                 </fieldset>
+             </form>
+         </div>
+         <div class="col-md-6">
+             <h2> Ubicación del Producto</h2>
+             <fieldset>
+                 <font color="white">Producto:</font> <input placeholder="Nombre del Producto" [(ngModel)]="FindProduct"> <button (click)="addFindProduct()"> Buscar </button>
+             </fieldset>
+         </div>
+         <div *ngIf="added==true">
+             <font color="white"> Su producto ha sido encontrado. </font>
+         </div>
      </div>
-
-
  </div>
