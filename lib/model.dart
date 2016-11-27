@@ -75,7 +75,15 @@ class Sale {
   //String get data => "$nameBuyer $DNI $RUC $address $priceTotal";
   //Sale(this.id,this.nameBuyer,this.DNI,this.RUC,this.address,this.priceTotal);
 }
-
+@Entity()
+class Cliente {
+  int id;
+  String first_name;
+  String last_name;
+  int dni;
+  int ruc;
+  int client_type;
+}
 
 @Entity()
 class UserProvider {

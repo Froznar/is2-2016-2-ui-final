@@ -113,6 +113,16 @@ class ApplicationService extends BaseService {
     return completer.future;
   }
 
+  Future<Cliente> setClient(String data) {
+    Completer<Cliente> completer = new Completer<Cliente>();
+
+    get('client/v1/clientInsert/$data').then((responseText){
+      Cliente cliente = dson.decode(responseText, new Cliente(), false);
+      completer.complete(cliente);
+    });
+    return completer.future;
+  }
+
 
   
 
