@@ -76,6 +76,7 @@ class Sale {
   //Sale(this.id,this.nameBuyer,this.DNI,this.RUC,this.address,this.priceTotal);
 }
 
+
 @Entity()
 class Out {
   int id;
@@ -86,6 +87,16 @@ class Out {
   List<Product> listProduct;
   int priceTotal;
   DateTime dateSale;
+}
+
+@Entity()
+class Cliente {
+  int id;
+  String first_name;
+  String last_name;
+  int dni;
+  int ruc;
+  int client_type;
 }
 
 @Entity()
