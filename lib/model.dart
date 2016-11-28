@@ -75,6 +75,20 @@ class Sale {
   //String get data => "$nameBuyer $DNI $RUC $address $priceTotal";
   //Sale(this.id,this.nameBuyer,this.DNI,this.RUC,this.address,this.priceTotal);
 }
+
+
+@Entity()
+class Out {
+  int id;
+  String nameBusiness;
+  int RUC;
+  String address;
+  String voucher;
+  List<Product> listProduct;
+  int priceTotal;
+  DateTime dateSale;
+}
+
 @Entity()
 class Cliente {
   int id;
