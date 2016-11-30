@@ -32,7 +32,7 @@ class UserAdministratorRegister implements OnInit{
   String account;
   String password;
   String user_type;
-  int tipo;
+
 
   Future<Null> getUsers()  async {
     users = await applicationService.getUsers();

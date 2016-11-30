@@ -71,14 +71,9 @@ class BaseService {
 
 @Injectable()
 class ApplicationService extends BaseService {
-  Future<User> getUser(int id) {
-    Completer<User> completer = new Completer<User>();
-
-    get('rest/v1/user?id=$id').then((responseText){
-      User user = dson.decode(responseText, new User(), false);
-      completer.complete(user);
-    });
-    return completer.future;
+  Future<User> getUser(int id) async{
+    String responseText = await get('user/v1/user/$id');
+    return dson.decode(responseText, new User(), false);
   }
   
   Future<List<User>> getUsers() async {
