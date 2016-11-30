@@ -1,3 +1,5 @@
+
+import 'dart:async';
 import 'package:angular2/angular2.dart';
 import 'package:angular2/router.dart';
 
@@ -12,17 +14,18 @@ import 'package:logistic_ui/model.dart';
     directives: const[ROUTER_DIRECTIVES, NgIf, NgFor],
     viewProviders: const [LOGISTIC_SERVICE_PROVIDERS])
 
-class UserAdministratorRegister{
+
+
+class UserAdministratorRegister implements OnInit{
+
+  ApplicationService applicationService;
 
   Router router;
-  ApplicationService applicationService;
-  UserAdministratorRegister(ApplicationService this.applicationService, Router this.router) {}
+  UserAdministratorRegister(ApplicationService this.applicationService) {}
+  List<User> users;
   User user;
 
-  List<String> type = ['Administrador de Ventas', 'Administrador de Producto'];
-  String currentType = 'Tipo de usuario';
   bool added = false;
-
   String first_name;
   String last_name;
   String email;
@@ -31,15 +34,30 @@ class UserAdministratorRegister{
   String user_type;
   int tipo;
 
-  void catchType(String type){
-    this.currentType = type;
+  Future<Null> getUsers()  async {
+    users = await applicationService.getUsers();
   }
 
+  void ngOnInit() {
+    getUsers();
+  }
+
+
   void addUser(String first_name,String last_name,String email,String account,String password,String user_type) {
-    String datos=first_name+"-"+last_name+"-"+email+"-"+account+"-"+password+"-"+user_type;
+    int type;
+    if(user_type=='Administrador'){
+      type=2;
+    }
+    if(user_type=='Almacenero'){
+      type=1;
+    }
+    if(user_type=='Vendedor'){
+      type=3;
+    }
+    String datos = first_name + "-" + last_name + "-" + email + "-" + account +
+        "-" + password + "-" + type.toString();
     print(datos);
-    applicationService.addUser(datos).then((User user) {
-    });
-    added =true;
+    applicationService.addUser(datos).then((User user) {});
+    added = true;
   }
 }

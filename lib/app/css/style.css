@@ -38,6 +38,10 @@ a {
 a:hover,
 a:focus {text-decoration: none;}
 
+label {
+    color: #F2EFCC;
+}
+
 .center{text-align: center; margin: 0 auto;}
 .f-right{float: right;}
 .f-left{float: left;}
@@ -414,6 +418,74 @@ a.btn:focus{outline: 0;}
 
 .btn-skin {color: #fff;background-color: #DE5781;min-width: 110px;}
 .btn-skin:hover {color: #fff;background-color: #333;}
+
+/* ---------------------------------------------------------------------------- */
+/* ------------------------------------Forms----------------------------------- */
+/* ---------------------------------------------------------------------------- */
+form {
+	margin-top: 5%;
+}
+
+form .input-group .form-control{
+	width: 150%;
+}
+
+form .form-group{
+    padding-top: 6%;
+}
+
+/* ---------------------------------------------------------------------------- */
+/* ------------------------------------Tables---------------------------------- */
+/* ---------------------------------------------------------------------------- */
+table {
+	width: 100%;
+}
+
+thead, tbody, tr{ display: block; }
+
+th{
+	padding: 20px 15px;
+	text-align: center;
+	font-weight: 500;
+	font-size: 16px;
+	color: #F2EFCC;
+	text-transform: uppercase;
+	width: 25%;
+	float: left;
+}
+
+td{
+	padding: 15px;
+	text-align: center;
+	vertical-align:middle;
+	font-weight: 300;
+	font-size: 14px;
+	border: none;
+	color: #1E2329;
+	width: 25%;
+	float: left;
+}
+
+tr:after {
+	content: ' ';
+	display: block;
+	visibility: hidden;
+	clear: both;
+}
+
+tbody {
+	height: 380px;
+	overflow-y: auto;
+	background: #F2EFCC;
+}
+
+thead {
+	background: #384647;
+}
+
+
+
+
 
 /* ---------------------------------------------------------------------------- */
 /* ------------------------------------Fonts----------------------------------- */
