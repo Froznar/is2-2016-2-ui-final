@@ -28,11 +28,11 @@
                 <form role="form" >
                     <div class="form-group">
                         <div class="col-md-4"><label>Busqueda por ID</label></div>
-                        <div class="col-md-4">
+                        <div class="col-md-2">
                             <input [(ngModel)]="id" type="text" class="form-control" placeholder="id">
                         </div>
-                        <div class="col-md-4">
-
+                        <div class="col-md-6">
+                            <button class="btn btn-primary btn-lg" (click)="getActiveUser(id)">Buscar</button>
                         </div>
                     </div>
                 </form>
@@ -87,7 +87,7 @@
                 </div>
 
             </form>
-            <button class="btn btn-primary btn-lg" (click)="modifyUser(first_name,last_name, email, account, password, user_type)">Modificar</button>
+            <button class="btn btn-primary btn-lg" (click)="modifyUser(first_name,last_name, email, account, password, user_type, id)">Modificar</button>
 
 
         </div>

@@ -21,6 +21,7 @@ class UserAdministratorModify implements OnInit{
   UserAdministratorModify(ApplicationService this.applicationService) {}
   List<User> users;
   User userActive;
+  User user;
 
   bool modify = false;
   int id;
@@ -58,7 +59,25 @@ class UserAdministratorModify implements OnInit{
     updateUser();
   }
 
-  void modifyUser(String first_name,String last_name,String email,String account,String password,String user_type) {
+  Future<User> getActiveUser(id) async{
+    userActive= await applicationService.getUser(id);
+    this.id=userActive.id;
+    this.first_name=userActive.first_name;
+    this.last_name=userActive.last_name;
+    this.email=userActive.email;
+    this.account=userActive.account;
+    this.password=userActive.password;
+    if(userActive.user_type==1){
+      this.user_type='Almacenero';
+    }
+    if(userActive.user_type==2){
+      this.user_type='Administrador';
+    }
+    if(userActive.user_type==3){
+      this.user_type='Vendedor';
+    }
+  }
+  Future<Null> modifyUser(String first_name,String last_name,String email,String account,String password,String user_type,int id) async{
     int type;
     if(user_type=='Administrador'){
       type=2;
@@ -70,9 +89,9 @@ class UserAdministratorModify implements OnInit{
       type=3;
     }
     String datos = first_name + "-" + last_name + "-" + email + "-" + account +
-        "-" + password + "-" + type.toString();
+        "-" + password + "-" + type.toString()+"-"+id.toString();
     print(datos);
-    applicationService.addUser(datos).then((User user) {});
+    applicationService.updateUser(datos).then((User user) {});
   }
 
 }
