@@ -113,6 +113,16 @@ class ApplicationService extends BaseService {
     return completer.future;
   }
 
+  Future<Out> setOut(String data) {
+    Completer<Out> completer = new Completer<Out>();
+
+    get('out/v1/outInsert/$data').then((responseText){
+      Out out = dson.decode(responseText, new Out(), false);
+      completer.complete(out);
+    });
+    return completer.future;
+  }
+
   Future<Cliente> setClient(String data) {
     Completer<Cliente> completer = new Completer<Cliente>();
 
@@ -122,10 +132,6 @@ class ApplicationService extends BaseService {
     });
     return completer.future;
   }
-
-
-  
-
 
   Future<ApplicationInfo> getApplicationInfo() {
     ApplicationInfo appInfo = new ApplicationInfo(name: "Blazing Box", version: "0.0.1.DEV-MODE", buildInfo:

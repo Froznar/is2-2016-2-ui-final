@@ -31,8 +31,8 @@ class ProductOutComponent {
   String ruc;
   String address;
   String voucher;
-  String price_total;
-  double  price_total1 = 0.0;
+  String price_total='0.0';
+  double price_total1 = 0.0;
 
   onSubmit() {
     submitted = true;
@@ -47,14 +47,15 @@ class ProductOutComponent {
     });
   }
 
-//  void onRegisterOut(String name_business,String ruc,String address, String voucher,String price_total )
-//  {
-//    String date= "now";
-//    String datos=name_business+"-"+ruc+"-"+address+"-"+voucher+"-"+price_total+"-"+date;
-//    applicationService.setSale(datos);
-//    this.out=out;
-//
-//  }
+  void onRegisterOut(String name_business,String ruc,String address, String voucher,String price_total )
+  {
+    String date= "now";
+    String datos=name_business+"-"+ruc+"-"+address+"-"+voucher+"-"+price_total+"-"+date;
+    applicationService.setOut(datos);
+    this.out=out;
+
+  }
+
   void listProductAdd(){
     this.listProduct.add(product);
   }
@@ -66,7 +67,8 @@ class ProductOutComponent {
     this.out = out;
   }
   void priceTotal(){
-    for (int i = 1; i < listProduct.length ; i++) {
+    price_total1=0.0;
+    for (int i = 0; i < listProduct.length ; i++) {
       price_total1 = price_total1 + listProduct[i].price;
     }
     this.price_total = price_total1.toString();
