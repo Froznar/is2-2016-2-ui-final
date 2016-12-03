@@ -103,15 +103,12 @@ class ApplicationService extends BaseService {
     return completer.future;
   }
 
-  Future<Sale> getSale(String dateStart,String dateEnd) {
-    Completer<Sale> completer = new Completer<Sale>();
-
-    get('sale/v1/allDate/$dateStart').then((responseText){
-      Sale sale = dson.decode(responseText, new Sale(), false);
-      completer.complete(sale);
-    });
-    return completer.future;
+  //listar ventas de una fecha inicio a fecha fin
+  Future<List<Sale>> getSales(String dateSTart,String dateEnd) async {
+    String responseText = await get('sale/v1/allDate/$dateSTart%$dateEnd');
+    return dson.decode(responseText, new Sale(), true);
   }
+
 
   Future<Sale> setSale(String data) {
     Completer<Sale> completer = new Completer<Sale>();
