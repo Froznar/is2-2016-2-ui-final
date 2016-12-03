@@ -17,7 +17,6 @@ import 'package:logistic_ui/request.dart';
 
 
 class Login extends AfterViewInit {
-
   Router router;
   ApplicationService applicationService;
   Login(ApplicationService this.applicationService, Router this.router) {}

@@ -12,12 +12,14 @@ import 'package:logistic_ui/component/user_product_management/user_product_regis
 import 'package:logistic_ui/component/user_product_management/user_product_see_warehouse/user_product_see_warehouse.dart';
 import 'package:logistic_ui/component/user_product_management/user_product_provider_register/user_product_provider_register.dart';
 import 'package:logistic_ui/component/user_product_management/user_product_type_register/user_product_type_register.dart';
+import 'package:logistic_ui/component/user_product_management/user_see_available_products/user_see_available_products.dart';
+
 
 @Component(
     selector: 'user-product-management',
     templateUrl: 'user_product_management.html',
     directives: const[ROUTER_DIRECTIVES, NgIf, NgFor,
-      UserProductProviderRegister,UserProductRegister,UserProductSeeWarehouse,UserProductTypeRegister,FooterPanel],
+      UserProductProviderRegister,UserProductRegister,UserProductSeeWarehouse,UserProductTypeRegister,UserSeeAvailableProducts,FooterPanel],
     viewProviders: const [LOGISTIC_SERVICE_PROVIDERS])
 
 class UserProductManagement implements AfterViewInit{
@@ -33,11 +35,14 @@ class UserProductManagement implements AfterViewInit{
   @ViewChild(UserProductRegister)
   UserProductRegister userProductRegister;
 
+  @ViewChild(UserProductTypeRegister)
+  UserProductTypeRegister userProductTypeRegister;
+
   @ViewChild(UserProductSeeWarehouse)
   UserProductSeeWarehouse userProductSeeWarehouse;
 
-  @ViewChild(UserProductTypeRegister)
-  UserProductTypeRegister userProductTypeRegister;
+  @ViewChild(UserSeeAvailableProducts)
+  UserSeeAvailableProducts userSeeAvailableProducts;
 
   @ViewChild(FooterPanel)
   FooterPanel footerPanel;

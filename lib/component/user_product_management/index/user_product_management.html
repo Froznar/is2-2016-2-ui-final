@@ -19,17 +19,14 @@
             <li><a href="#userproductmanagement" (click)="onSelect(2)">Registrar proveedor</a></li>
             <li><a href="#userproductmanagement" (click)="onSelect(3)">Registrar nuevo tipo de producto/material</a></li>
             <li><a href="#userproductmanagement" (click)="onSelect(4)">Ver almac&eacute;n</a></li>
+            <li><a href="#userproductmanagement" (click)="onSelect(5)">Ver materiales disponibles</a></li>
         </ul>
     </div><!-- /.container-fluid -->
 </nav>
 <div #content id="content">
-
-    <div class="col-md-12">
-
+    <div class="col-md-12 margenes">
         <br><br><br> <!-- placeholder -->
-
     </div>
-
     <div *ngIf="NavBar == 1">
         <user-product-provider-register></user-product-provider-register>
     </div>
@@ -37,14 +34,15 @@
         <user-product-register></user-product-register>
     </div>
     <div *ngIf="NavBar == 3">
-        <user-product-see-warehouse></user-product-see-warehouse>
-    </div>
-    <div *ngIf="NavBar == 4">
         <user-product-type-register></user-product-type-register>
     </div>
+    <div *ngIf="NavBar == 4">
+        <user-product-see-warehouse></user-product-see-warehouse>
+    </div>
+    <div *ngIf="NavBar == 5">
+        <user-see-available-products></user-see-available-products>
+    </div>
     <div class="col-md-12">
-
-
     </div>
 </div>
 
