@@ -70,7 +70,7 @@ class Sale {
   String address;
   String voucher;
   List<Product> listProduct;
-  int priceTotal;
+  double priceTotal;
   DateTime dateSale;
   //String get data => "$nameBuyer $DNI $RUC $address $priceTotal";
   //Sale(this.id,this.nameBuyer,this.DNI,this.RUC,this.address,this.priceTotal);
