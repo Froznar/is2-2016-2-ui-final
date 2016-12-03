@@ -32,7 +32,6 @@ class User {
   String password;
   int user_type;
   String get name => "$first_name $last_name";
-  User({this.first_name, this.last_name, this.email, this.account, this.password, this.user_type});
 }
 
 @Entity()
