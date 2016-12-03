@@ -35,28 +35,14 @@ class UserAdministratorModify implements OnInit{
   Future<Null> getUsers()  async {
     users = await applicationService.getUsers();
   }
-  Future<Null> updateUser() async {
-    userActive= await applicationService.getUser(3);
-    this.id=userActive.id;
-    this.first_name=userActive.first_name;
-    this.last_name=userActive.last_name;
-    this.email=userActive.email;
-    this.account=userActive.account;
-    this.password=userActive.password;
-    if(userActive.user_type==1){
-      this.user_type='Almacenero';
-    }
-    if(userActive.user_type==2){
-      this.user_type='Administrador';
-    }
-    if(userActive.user_type==3){
-      this.user_type='Vendedor';
-    }
+  Future<List<User>> updateUsers() async {
+    List<User> newUsers = await applicationService.getUsers();
+    return newUsers;
   }
 
   void ngOnInit() {
     getUsers();
-    updateUser();
+    getActiveUser(3);
   }
 
   Future<User> getActiveUser(id) async{
@@ -92,6 +78,8 @@ class UserAdministratorModify implements OnInit{
         "-" + password + "-" + type.toString()+"-"+id.toString();
     print(datos);
     applicationService.updateUser(datos).then((User user) {});
+    users = null;
+    users = await updateUsers();
   }
 
 }

@@ -6,6 +6,8 @@ import 'package:angular2/router.dart';
 import 'package:logistic_ui/request.dart';
 import 'package:logistic_ui/providers.dart';
 import 'package:logistic_ui/model.dart';
+import 'package:dartson/dartson.dart';
+
 
 
 @Component(
@@ -19,7 +21,7 @@ import 'package:logistic_ui/model.dart';
 class UserAdministratorRegister implements OnInit{
 
   ApplicationService applicationService;
-
+  var dson = new Dartson.JSON();
   Router router;
   UserAdministratorRegister(ApplicationService this.applicationService) {}
   List<User> users;
@@ -37,13 +39,17 @@ class UserAdministratorRegister implements OnInit{
   Future<Null> getUsers()  async {
     users = await applicationService.getUsers();
   }
+  Future<List<User>> updateUsers() async {
+    List<User> newUsers = await applicationService.getUsers();
+    return newUsers;
+  }
 
   void ngOnInit() {
     getUsers();
   }
 
 
-  void addUser(String first_name,String last_name,String email,String account,String password,String user_type) {
+  Future<Null> addUser(String first_name,String last_name,String email,String account,String password,String user_type) async{
     int type;
     if(user_type=='Administrador'){
       type=2;
@@ -56,8 +62,12 @@ class UserAdministratorRegister implements OnInit{
     }
     String datos = first_name + "-" + last_name + "-" + email + "-" + account +
         "-" + password + "-" + type.toString();
-    print(datos);
-    applicationService.addUser(datos).then((User user) {});
-    added = true;
+    User xuser = new User(first_name: first_name,last_name: last_name,email: email,
+        account: account, password: password, user_type: type);
+    String xdatos = dson.encode(xuser);
+    print(xdatos);
+    applicationService.addUser(xuser).then((User user) {});
+    users = null;
+    users = await updateUsers();
   }
 }

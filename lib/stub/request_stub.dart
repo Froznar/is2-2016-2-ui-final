@@ -10,7 +10,7 @@ import 'package:logistic_ui/request.dart';
 class ApplicationServiceStub extends ApplicationService {
   Future<ApplicationInfo> getApplicationInfo() {
     ApplicationInfo appInfo = new ApplicationInfo(
-        name: "App Stub",
+        name: "Blazing Box",
         version: "0.0.1.DEV-MODE",
         buildInfo: new ApplicationBuildInfo(
             revision: "000-local", branch: "none", buildTime: new DateTime.now()));
