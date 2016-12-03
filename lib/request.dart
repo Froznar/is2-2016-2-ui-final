@@ -5,6 +5,7 @@ import 'dart:html';
 import 'package:angular2/angular2.dart';
 import 'package:dartson/dartson.dart';
 import 'package:dartson/transformers/date_time.dart';
+
 import 'package:logistic_ui/model.dart';
 
 final bool DEVELOPMENT_MODE = window.location.port == "8080";
@@ -70,17 +71,13 @@ class BaseService {
 
 @Injectable()
 class ApplicationService extends BaseService {
-  Future<User> getUser(int id) {
-    Completer<User> completer = new Completer<User>();
-
-    get('rest/v1/user?id=$id').then((responseText){
-      User user = dson.decode(responseText, new User(), false);
-      completer.complete(user);
-    });
-    return completer.future;
+  Future<User> getUser(int id) async{
+    String responseText = await get('user/v1/user/$id');
+    return dson.decode(responseText, new User(), false);
   }
+  
   Future<List<User>> getUsers() async {
-    String responseText = await get('rest/v1/users');
+    String responseText = await get('user/v1/all');
     return dson.decode(responseText, new User(), true);
   }
 
@@ -93,10 +90,107 @@ class ApplicationService extends BaseService {
     String responseText = await get('user/v1/user/account/$account');
     return dson.decode(responseText, new User(), false);
   }
+
+  Future<UserProvider> addProvider(String name) async {
+    String responseText = await get('provider/v1/provider/insert/$name');
+    return dson.decode(responseText, new UserProvider(), false);
+  }
+
+  Future<User> addUser(String user) async {
+    String responseText = await get('user_administrator/v1/user_administrator/insert/$user');
+    return dson.decode(responseText, new User(), false);
+  }
+
+  Future<User> updateUser(String data) async {
+    String responseText = await get('user_administrator/v1/user_administrator/updateuser/$data');
+    return dson.decode(responseText, new User(), false);
+  }
+
   Future<List<UserProvider>> getUserProvider(String name) async {
     String responseText = await get('proveedor/v1/proveedor/name/$name');
     return dson.decode(responseText, new UserProvider(), true);
   }
+
+  Future<Product> getProductByName(String name) {
+    Completer<Product> completer = new Completer<Product>();
+
+    get('product/v1/productName/$name').then((responseText){
+      Product product = dson.decode(responseText, new Product(), false);
+      completer.complete(product);
+    });
+    return completer.future;
+  }
+
+  //listar ventas de una fecha inicio a fecha fin
+  Future<List<Sale>> getSales(String dateSTart,String dateEnd) async {
+    String responseText = await get('sale/v1/allDate/$dateSTart%$dateEnd');
+    return dson.decode(responseText, new Sale(), true);
+  }
+
+
+  Future<Sale> setSale(String data) {
+    Completer<Sale> completer = new Completer<Sale>();
+
+    get('sale/v1/saleInsert/$data').then((responseText){
+      Sale sale = dson.decode(responseText, new Sale(), false);
+      completer.complete(sale);
+    });
+    return completer.future;
+  }
+
+/*  Future<Out> setOut(String data) {
+    Completer<Out> completer = new Completer<Out>();
+
+    get('out/v1/outInsert/$data').then((responseText){
+      Out out = dson.decode(responseText, new Out(), false);
+      completer.complete(out);
+    });
+    return completer.future;
+  }*/
+
+  Future<Cliente> setClient(String data) {
+    Completer<Cliente> completer = new Completer<Cliente>();
+
+    get('client/v1/clientInsert/$data').then((responseText){
+      Cliente cliente = dson.decode(responseText, new Cliente(), false);
+      completer.complete(cliente);
+    });
+    return completer.future;
+  }
+
+  /*Obtener Ultima Venta Registrada*/
+  Future<Sale> getLastSale() {
+    Completer<Sale> completer = new Completer<Sale>();
+
+    get('sale/v1/lastSale/').then((responseText){
+      Sale sale = dson.decode(responseText, new Sale(), false);
+      completer.complete(sale);
+    });
+    return completer.future;
+  }
+
+  /*Obtener Ultima Venta Registrada*/
+  Future<Product> getLastProduct() {
+    Completer<Product> completer = new Completer<Product>();
+
+    get('product/v1/lastProduct/').then((responseText){
+      Product product = dson.decode(responseText, new Product(), false);
+      completer.complete(product);
+    });
+    return completer.future;
+  }
+
+  /*Insertar Sale-Product*/
+  Future<SaleProduct> setSaleProduct(String data) {
+    Completer<SaleProduct> completer = new Completer<SaleProduct>();
+
+    get('sale_product/v1/sale_product_insert/$data').then((responseText){
+      SaleProduct saleProduct = dson.decode(responseText, new SaleProduct(), false);
+      completer.complete(saleProduct);
+    });
+    return completer.future;
+  }
+
   Future<ApplicationInfo> getApplicationInfo() {
     ApplicationInfo appInfo = new ApplicationInfo(name: "Blazing Box", version: "0.0.1.DEV-MODE", buildInfo:
     new ApplicationBuildInfo(revision: "000", branch: "none", buildTime: new DateTime.now()));

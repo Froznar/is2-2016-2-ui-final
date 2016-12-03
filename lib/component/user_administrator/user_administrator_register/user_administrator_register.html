@@ -1,9 +1,86 @@
 <div  class="centered">
-    <div class="row">
+  <div class="row">
 
-        <div class="col-md-6">
-            <h2> Registrar Usuario </h2>
+    <div class="col-md-6">
+      <h2>Registrar Usuario</h2>
+
+      <form role="form">
+        <div class="form-group">
+            <div class="col-md-2"><label>Nombre:</label></div>
+            <div class="col-md-10">
+                <input [(ngModel)]="first_name" type="text" class="form-control" placeholder="Nombre">
+            </div>
         </div>
 
+        <div class="form-group">
+            <div class="col-md-2"><label>Apellidos:</label></div>
+            <div class="col-md-10">
+                <input [(ngModel)]="last_name" type="text" class="form-control" placeholder="Apellidos">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-2"><label>Correo:</label></div>
+            <div class="col-md-10">
+                <input [(ngModel)]="email" type="text" class="form-control" placeholder="Correo">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-2"><label>Cuenta:</label></div>
+            <div class="col-md-10">
+                <input [(ngModel)]="account" type="text" class="form-control" placeholder="Nombre de la cuenta">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-2"><label>Password:</label></div>
+            <div class="col-md-10">
+                <input [(ngModel)]="password" type="password" class="form-control" placeholder="Contraña">
+            </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-md-3"> <label>Tipo de Usuario</label> </div>
+          <div class="cols-md-9">
+            <div class="input-group">
+              <select [(ngModel)]="user_type" name="state" class="form-control selectpicker">
+                <option>Administrador</option>
+                <option>Almacenero</option>
+                <option>Vendedor</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+      </form>
+
+      <button class="btn btn-primary btn-lg" (click)="addUser(first_name,last_name, email, account, password, user_type)"> Agregar </button>
+
     </div>
+
+
+    <div class="col-md-6">
+      <h2>Lista de Usuarios </h2>
+
+      <table class="table right-table table-hover">
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Usuario</th>
+          <th>Tipo</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let user of users" >
+          <td>{{user.id}}</td>
+          <td>{{user.name}}</td>
+          <td>{{user.account}}</td>
+          <td>{{user.user_type}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>

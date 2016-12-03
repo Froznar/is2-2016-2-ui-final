@@ -25,11 +25,11 @@ class Login extends AfterViewInit {
   String userAccount;
   String userPassword;
   int userType = 0;
-
+ 
   void ngAfterViewInit() {}
   void checkUser(String account, String password) {
     applicationService.getUserByAccount(account).then((User user) {
-      if (user.password == userPassword) {
+	if (user.password == userPassword) {
         this.user = user;
         this.userType = user.user_type;
         if (this.userType == 1) {
