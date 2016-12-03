@@ -1,53 +1,58 @@
 <div class="centered">
-            <!-- Aquí van las opciones de registrar un nuevo proveedor -->
-             <div class="row">
-                 <div class="col-md-12">
-                     <h2> Registrar un nuevo proveedor</h2>
-                 </div>
-             </div>
-             <div class="row">
-                 <div class="col-md-6 text-right">
-                     <font color="white">RUC:</font>
-                 </div>
-                 <div class="col-md-6 text-left">
-                     <input placeholder="" type="text" tabindex="1" required autofocus>
-                 </div>
-             </div>
-             <div class="row">
-                 <div class="col-md-6 text-right">
-                     <font color="white">Nombre del proveedor:</font>
-                 </div>
-                 <div class="col-md-6 text-left">
-                     <input placeholder="" type="text" tabindex="2" required autofocus>
-                 </div>
-             </div>
-             <div class="row">
-                 <div class="col-md-6 text-right">
-                     <font color="white">Direccion:</font>
-                 </div>
-                 <div class="col-md-6 text-left">
-                     <input placeholder="" type="text" tabindex="3" required autofocus>
-                 </div>
-             </div>
-             <div class="row">
-                 <div class="col-md-6 text-right">
-                     <font color="white">Email:</font>
-                 </div>
-                 <div class="col-md-6 text-left">
-                     <input placeholder="" type="text" tabindex="4" required autofocus>
-                 </div>
-             </div>
-             <div class="row">
-                 <div class="col-md-6 text-right">
-                     <font color="white">Telefono:</font>
-                 </div>
-                 <div class="col-md-6 text-left">
-                     <input placeholder="" type="text" tabindex="5" required autofocus>
-                 </div>
-             </div>
-             <div class="row">
-                 <div class="col-md-12">
-                     <button class="btn" type="button" (click) = "addProvider()">Agregar</button>
-                 </div>
-             </div>
-         </div>
+  <fieldset>
+    <!-- Aquí van las opciones de registrar un nuevo proveedor -->
+    <div class="row">
+      <div class="col-md-12">
+        <h2> Registrar un nuevo proveedor</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 text-right">
+        <font color="white">RUC:</font>
+      </div>
+      <div class="col-md-6 text-left">
+        <input placeholder="" type="text" tabindex="1" required [(ngModel)]="ruc">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6 text-right">
+        <font color="white">Nombre del proveedor:</font>
+      </div>
+      <div class="col-md-6 text-left">
+        <input placeholder="userAccount" type="text" tabindex="2"required [(ngModel)]="name" >
+      </div>
+    </div>
+    
+    
+    <div class="row">
+      <div class="col-md-6 text-right">
+        <font color="white">Direccion:</font>
+      </div>
+      <div class="col-md-6 text-left">
+        <input placeholder="" type="text" tabindex="3" required [(ngModel)]="address">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 text-right">
+        <font color="white">Email:</font>
+      </div>
+      <div class="col-md-6 text-left">
+        <input placeholder="" type="text" tabindex="4" required [(ngModel)]="email">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 text-right">
+        <font color="white">Telefono:</font>
+      </div>
+      <div class="col-md-6 text-left">
+        <input placeholder="" type="text" tabindex="5" required [(ngModel)]="phone">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+       	<input class="btn btn-default" type="button" value="Submit" (click) = "addProviders(name,ruc,address,email,phone)" />
+      </div>
+    </div>
+  </fieldset>
+</div>

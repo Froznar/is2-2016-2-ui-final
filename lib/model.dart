@@ -31,6 +31,7 @@ class User {
   String account;
   String password;
   int user_type;
+  
   String get name => "$first_name $last_name";
 }
 
@@ -75,6 +76,18 @@ class Sale {
   //String get data => "$nameBuyer $DNI $RUC $address $priceTotal";
   //Sale(this.id,this.nameBuyer,this.DNI,this.RUC,this.address,this.priceTotal);
 }
+/* //Esta clase ya existe asi que se usara UserProvider
+@Entity()
+class Provider {
+  int id_provider;
+  String name_provider;
+  String RUC;
+  String address;
+  String email;
+  String phone;
+  String get name => "$name_provider";
+}
+*/
 
 
 /*@Entity()
@@ -101,8 +114,13 @@ class Cliente {
 
 @Entity()
 class UserProvider {
-  int id_proveedor;
-  String name_proveedor;
+  int id_provider;
+  String name_provider;
+  String RUC;
+  String address;
+  String email;
+  String phone;
+  String get name => "$name_provider";
 }
 
 @Entity()
