@@ -77,7 +77,7 @@ class Sale {
 }
 
 
-@Entity()
+/*@Entity()
 class Out {
   int id;
   String nameBusiness;
@@ -87,7 +87,7 @@ class Out {
   List<Product> listProduct;
   int priceTotal;
   DateTime dateSale;
-}
+}*/
 
 @Entity()
 class Cliente {
@@ -105,5 +105,13 @@ class UserProvider {
   String name_proveedor;
 }
 
+@Entity()
+class SaleProduct {
+  int id_sale_product;
+  int id_sale;
+  int id_product;
+  int cantidad;
+  double priceUnit;
+}
 
 
