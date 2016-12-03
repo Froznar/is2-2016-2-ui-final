@@ -1,6 +1,54 @@
-
-
 <div class="container">
 
-    <h2>Product Report</h2>
+    <div class="col-md-6">
+        <br><h1>Reportes de Ventas</h1>
+        <br>
+        <div>
+            <form>
+                <div class="form-group row">
+                    <label for="example-date-input" class="col-xs-3 col-form-label"><font color="white">Fecha inicio</font></label>
+                    <input class="form-control" type="date" value="2016-08-19" id="example-date-input" required [(ngModel)]="dateStart">
+                </div>
+
+                <div class="form-group row">
+                    <label for="example-date-input2" class="col-xs-3 col-form-label"><font color="white">Fecha fin</font></label>
+                    <input class="form-control" type="date" value="2016-12-02" id="example-date-input2" required [(ngModel)]="dateEnd">
+                </div>
+
+            </form>
+
+            <button type="submit" class="btn btn-default" (click)="onCheckSale(dateStart,dateEnd)" (click)="priceTotal()">Ver Reporte</button>
+        </div>
+
+    </div>
+
+    <div class="col-md-6">
+
+        <div *ngIf="checkP">
+
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th><font color="white">Comprador</font> </th>
+                    <th><font color="white">DNI</font> </th>
+                    <th><font color="white">Precio Total</font></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let item of listSale">
+                    <td>{{item.nameBuyer}}</td>
+                    <td>{{item.DNI}}</td>
+                    <td>{{item.priceTotal}}</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <div class="form-group">
+                <li><font color="white">TOTAL: {{price_total}}</font></li>
+            </div>
+
+        </div>
+
+    </div>
+
 </div>
