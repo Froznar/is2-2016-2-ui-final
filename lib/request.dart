@@ -56,7 +56,7 @@ class BaseService {
     return request(resourcePath, "GET");
   }
 
-  Future post(String resourcePath, User data) {
+  Future post(String resourcePath, String data) {
     return request(resourcePath, "POST", data);
   }
 
@@ -90,8 +90,8 @@ class ApplicationService extends BaseService {
     return dson.decode(responseText, new UserProvider(), false);
   }
 
-  Future<User> addUser(User user) async {
-    String responseText = await post('user_administrator/v1/user_administrator/insert/', user);
+  Future<User> addUser(String user) async {
+    String responseText = await get('user_administrator/v1/user_administrator/insert/$user');
     return dson.decode(responseText, new User(), false);
   }
 

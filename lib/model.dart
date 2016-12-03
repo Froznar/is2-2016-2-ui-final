@@ -31,6 +31,7 @@ class User {
   String account;
   String password;
   int user_type;
+  
   String get name => "$first_name $last_name";
 }
 
