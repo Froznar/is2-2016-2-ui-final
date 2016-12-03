@@ -32,6 +32,7 @@ class User {
   String password;
   int user_type;
   String get name => "$first_name $last_name";
+  User({this.first_name, this.last_name, this.email, this.account, this.password, this.user_type});
 }
 
 @Entity()
@@ -60,18 +61,29 @@ class ProductOut
   ProductOut({this.name, this.quantity, this.receiver, this.phone});
 
 }
+/* //Esta clase ya existe asi que se usara UserProvider
+@Entity()
+class Provider {
+  int id_provider;
+  String name_provider;
+  String RUC;
+  String address;
+  String email;
+  String phone;
+  String get name => "$name_provider";
+}
+*/
 
-/*@Entity()
-class UserProvider {
-  int idProvider;
-  String nameProvider;
-  String get name => "$nameProvider";
-}*/
 
 @Entity()
 class UserProvider {
-  int id_proveedor;
-  String name_proveedor;
+  int id_provider;
+  String name_provider;
+  String RUC;
+  String address;
+  String email;
+  String phone;
+  String get name => "$name_provider";
 }
 
 

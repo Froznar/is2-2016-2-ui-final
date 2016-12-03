@@ -5,6 +5,7 @@ import 'dart:html';
 import 'package:angular2/angular2.dart';
 import 'package:dartson/dartson.dart';
 import 'package:dartson/transformers/date_time.dart';
+
 import 'package:logistic_ui/model.dart';
 
 final bool DEVELOPMENT_MODE = window.location.port == "8080";
@@ -55,7 +56,7 @@ class BaseService {
     return request(resourcePath, "GET");
   }
 
-  Future post(String resourcePath, String data) {
+  Future post(String resourcePath, User data) {
     return request(resourcePath, "POST", data);
   }
 
@@ -70,27 +71,41 @@ class BaseService {
 
 @Injectable()
 class ApplicationService extends BaseService {
-  Future<User> getUser(int id) {
-    Completer<User> completer = new Completer<User>();
-
-    get('rest/v1/user?id=$id').then((responseText){
-      User user = dson.decode(responseText, new User(), false);
-      completer.complete(user);
-    });
-    return completer.future;
+  Future<User> getUser(int id) async{
+    String responseText = await get('user/v1/user/$id');
+    return dson.decode(responseText, new User(), false);
   }
+  
   Future<List<User>> getUsers() async {
-    String responseText = await get('rest/v1/users');
+    String responseText = await get('user/v1/all');
     return dson.decode(responseText, new User(), true);
   }
   Future<User> getUserByAccount(String account) async {
     String responseText = await get('user/v1/user/account/$account');
     return dson.decode(responseText, new User(), false);
   }
+
+  Future<UserProvider> addProvider(String name) async {
+    String responseText = await get('provider/v1/provider/insert/$name');
+    return dson.decode(responseText, new UserProvider(), false);
+  }
+
+  Future<User> addUser(User user) async {
+    String responseText = await post('user_administrator/v1/user_administrator/insert/', user);
+    return dson.decode(responseText, new User(), false);
+  }
+
+  Future<User> updateUser(String data) async {
+    String responseText = await get('user_administrator/v1/user_administrator/updateuser/$data');
+    return dson.decode(responseText, new User(), false);
+  }
+
   Future<List<UserProvider>> getUserProvider(String name) async {
     String responseText = await get('proveedor/v1/proveedor/name/$name');
     return dson.decode(responseText, new UserProvider(), true);
   }
+
+
   Future<ApplicationInfo> getApplicationInfo() {
     ApplicationInfo appInfo = new ApplicationInfo(name: "Blazing Box", version: "0.0.1.DEV-MODE", buildInfo:
     new ApplicationBuildInfo(revision: "000", branch: "none", buildTime: new DateTime.now()));
