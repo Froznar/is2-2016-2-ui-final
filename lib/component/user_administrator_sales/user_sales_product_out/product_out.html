@@ -64,8 +64,13 @@
                     <!--<input placeholder="" type="text" tabindex="1" required [(ngModel)]="price_total">-->
                     <li><font color="white">{{price_total}}</font></li>
                 </div>
+               <!-- <div class="form-group">
+                    <label ><font color="white">PriceTotal:</font></label>
+                    <input placeholder="" type="text" tabindex="1" required [(ngModel)]="price_total">
 
-                <button type="submit" class="btn btn-default" (click)="onRegisterOut(name_business,ruc,address,voucher,price_total)">Comprar</button>
+                </div>-->
+
+                <button type="submit" class="btn btn-default" (click)="onRegisterSale(name_business,ruc,address,voucher,price_total)">Comprar</button>
                 <!--(click)="onRegisterSale(name_buyer,dni,ruc,address,voucher,price_total)"-->
             </form>
         </div>

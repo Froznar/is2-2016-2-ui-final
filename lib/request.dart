@@ -120,7 +120,7 @@ class ApplicationService extends BaseService {
     return completer.future;
   }
 
-  Future<Out> setOut(String data) {
+/*  Future<Out> setOut(String data) {
     Completer<Out> completer = new Completer<Out>();
 
     get('out/v1/outInsert/$data').then((responseText){
@@ -128,7 +128,7 @@ class ApplicationService extends BaseService {
       completer.complete(out);
     });
     return completer.future;
-  }
+  }*/
 
   Future<Cliente> setClient(String data) {
     Completer<Cliente> completer = new Completer<Cliente>();
@@ -136,6 +136,39 @@ class ApplicationService extends BaseService {
     get('client/v1/clientInsert/$data').then((responseText){
       Cliente cliente = dson.decode(responseText, new Cliente(), false);
       completer.complete(cliente);
+    });
+    return completer.future;
+  }
+
+  /*Obtener Ultima Venta Registrada*/
+  Future<Sale> getLastSale() {
+    Completer<Sale> completer = new Completer<Sale>();
+
+    get('sale/v1/lastSale/').then((responseText){
+      Sale sale = dson.decode(responseText, new Sale(), false);
+      completer.complete(sale);
+    });
+    return completer.future;
+  }
+
+  /*Obtener Ultima Venta Registrada*/
+  Future<Product> getLastProduct() {
+    Completer<Product> completer = new Completer<Product>();
+
+    get('product/v1/lastProduct/').then((responseText){
+      Product product = dson.decode(responseText, new Product(), false);
+      completer.complete(product);
+    });
+    return completer.future;
+  }
+
+  /*Insertar Sale-Product*/
+  Future<SaleProduct> setSaleProduct(String data) {
+    Completer<SaleProduct> completer = new Completer<SaleProduct>();
+
+    get('sale_product/v1/sale_product_insert/$data').then((responseText){
+      SaleProduct saleProduct = dson.decode(responseText, new SaleProduct(), false);
+      completer.complete(saleProduct);
     });
     return completer.future;
   }

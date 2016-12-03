@@ -1,16 +1,13 @@
 import 'package:angular2/angular2.dart';
-import 'package:angular2/router.dart';
-
-import 'package:logistic_ui/request.dart';
 import 'package:logistic_ui/providers.dart';
 import 'package:logistic_ui/model.dart';
+import 'package:logistic_ui/request.dart';
 
 
 
 @Component(
     selector: 'product-out',
     templateUrl: 'product_out.html',
-    directives: const[ROUTER_DIRECTIVES, NgIf, NgFor],
     viewProviders: const [LOGISTIC_SERVICE_PROVIDERS])
 
 class ProductOutComponent {
@@ -25,14 +22,20 @@ class ProductOutComponent {
 
   bool submitted = false;
   bool checkP = false;
-  Out out;
+  //Out out;
   Product product ;
+  Cliente client;
+  Sale sale;
+
   String name_business;
+  String last_name_buyer;
+  String dni;
   String ruc;
   String address;
   String voucher;
   String price_total='0.0';
   double price_total1 = 0.0;
+  String clientType;
 
   onSubmit() {
     submitted = true;
@@ -47,13 +50,28 @@ class ProductOutComponent {
     });
   }
 
-  void onRegisterOut(String name_business,String ruc,String address, String voucher,String price_total )
+  void onRegisterSale(String name_buyer,String ruc,String address, String voucher,String price_total)
   {
     String date= "now";
-    String datos=name_business+"-"+ruc+"-"+address+"-"+voucher+"-"+price_total+"-"+date;
-    applicationService.setOut(datos);
-    this.out=out;
+    String clientType="0";
+    String dni="111";
+    String last_name_buyer="LastName";
+    String datosSale=name_buyer+"-"+dni+"-"+ruc+"-"+address+"-"+voucher+"-"+price_total+"-"+date;
+    String datosCliente=name_buyer+"-"+last_name_buyer+"-"+dni+"-"+ruc+"-"+clientType;
+    applicationService.setSale(datosSale);
+    applicationService.setClient(datosCliente);
+    this.sale=sale;
+    this.client=client;
+  }
 
+  void set dataSale(Sale sale) {
+    this.sale = sale;
+    print(sale.id);
+  }
+
+  void set dataCliente(Cliente client) {
+    this.client = client;
+    print(client.id);
   }
 
   void listProductAdd(){
@@ -63,9 +81,7 @@ class ProductOutComponent {
   void set data(Product product) {
     this.product = product;
   }
-  void set dataOut(Product product) {
-    this.out = out;
-  }
+
   void priceTotal(){
     price_total1=0.0;
     for (int i = 0; i < listProduct.length ; i++) {
@@ -73,4 +89,6 @@ class ProductOutComponent {
     }
     this.price_total = price_total1.toString();
   }
+
 }
+
