@@ -37,8 +37,10 @@ class ProductSalesComponent extends AfterViewInit {
   String ruc;
   String address;
   String voucher;
-  String price_total;
+  String price_total='0.0';
   String client_type;
+  double price_total1 = 0.0;
+
   onSubmit() {
     submitted = true;
   }
@@ -87,6 +89,14 @@ class ProductSalesComponent extends AfterViewInit {
   void set dataCliente(Cliente client) {
     this.client = client;
     print(client.id);
+  }
+
+  void priceTotal(){
+    price_total1=0.0;
+    for (int i = 0; i < listProduct.length ; i++) {
+      price_total1 = price_total1 + listProduct[i].price;
+    }
+    this.price_total = price_total1.toString();
   }
 }
 
